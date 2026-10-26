@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIN und MAX – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="r2">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Mit MIN den kleinsten und mit MAX den größten Wert eines Bereichs ermitteln.</li><li>Ergebnisse von Funktionen weiterverwenden, zum Beispiel für eine Preisspanne.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Der Einkauf der BüroComfort GmbH fragt: „Was ist unser günstigster und was unser teuerster Artikel?“ In einer Liste mit 12 Artikeln finden Sie das schnell. Bei 1.200 Artikeln brauchen Sie dafür eine Funktion.</p>
+<h2>2. MIN und MAX</h2>
+<p><code>=MIN(C4:C15)</code> liefert den <strong>kleinsten</strong> Wert im Bereich C4 bis C15.</p>
+<p><code>=MAX(C4:C15)</code> liefert den <strong>größten</strong> Wert im Bereich C4 bis C15.</p>
+<p>Sie fügen die beiden Funktionen genauso ein wie SUMME und MITTELWERT. Wie das geht, steht im <a href="r1-summe-und-mittelwert.html">Modul R1</a>. In Excel finden Sie MIN und MAX auch in der Liste neben AutoSumme.</p>
+<div class="box tip"><div class="box-title">Mit Ergebnissen weiterrechnen</div><p>Sie können das Ergebnis einer Funktion in einer anderen Zelle verwenden. Steht der höchste Preis in C17 und der niedrigste in C16, berechnet <code>=C17-C16</code> die Preisspanne.</p>
+</div><div class="box warn"><div class="box-title">Typischer Fehler</div><p>MIN und MAX liefern nur den <strong>Wert</strong>, nicht den Namen des Artikels. Den passenden Artikel suchen Sie in der Liste selbst, zum Beispiel über die Sortierfunktion oder über das Suchen.</p>
+</div><h2>3. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Preisliste der BüroComfort GmbH</div><p>Tabellenblatt „Preisliste“ mit zwölf Artikeln. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 2 Standard“, „Aufgabe 3 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/r2-preisliste.xlsx" download>r2-preisliste.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Preisspanne ermitteln</h3><span class="lvl time">12 min</span></div><p>Lösen Sie den Auftrag aus dem Blatt „Aufgabenstellung“:</p>
+<ul>
+<li>niedrigster und höchster Preis (C16, C17) und die zugehörigen Artikel (B16, B17)</li>
+<li>Preisspanne (C18)</li>
+<li>Durchschnittspreis (C19)</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>C16 und C17 enthalten Funktionen und keine eingetippten Preise.</li>
+<li>Die Artikelnamen in B16 und B17 passen zu den Preisen.</li>
+<li>Die Preisspanne in C18 ist eine Formel mit Zellbezügen.</li>
+<li>Die Ergebnisse sind als Euro mit zwei Nachkommastellen formatiert.</li>
+</ul>
+</div><details><summary>Hilfe 1: Welche Funktionen?</summary><p>Für den kleinsten Wert gibt es MIN, für den größten MAX. Den Durchschnitt kennen Sie aus Modul R1.</p>
+</details><details><summary>Kontrolle</summary><p>Niedrigster Preis: 0,89 € (Kugelschreiber). Höchster Preis: 489,90 € (Schreibtisch höhenverstellbar). Preisspanne: 489,01 €. Durchschnittspreis: ca. 92,84 €.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Zusatz zu Aufgabe 1 · Was passiert, wenn sich ein Preis ändert?</h3><span class="lvl time">8 min</span></div><p>Ändern Sie den Preis des Kugelschreibers auf 3,50 €. Beschreiben Sie in zwei Sätzen, welche Zellen sich ändern und warum. Setzen Sie den Preis danach wieder zurück.</p>
+</div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Angebote vergleichen</h3><span class="lvl time">12 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 2 Standard“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Ermitteln Sie in Spalte E den günstigsten und in Spalte F den teuersten Preis je Artikel.</li>
+<li>Berechnen Sie in Spalte G die Preisspanne in Euro und in Spalte H die mögliche Ersparnis in Prozent gegenüber dem teuersten Preis.</li>
+<li>Ermitteln Sie in B23 die größte Preisspanne und in B24 den insgesamt niedrigsten Angebotspreis.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte E („Günstigster Preis“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Teuerster Preis“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Preisspanne“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Ersparnis“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Beim Artikel „Ordner“ liegt die Spanne bei 1,70 € (zwei gleiche Preise sind kein Fehler).</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte E (E14 bis E21): 17,45 €; 20,95 €; 19,40 €; 8,80 €; 7,25 €; 118,50 €; 34,90 €; 86,75 €</li>
+<li>Spalte F (F14 bis F21): 19,20 €; 22,80 €; 21,10 €; 9,95 €; 8,15 €; 134,90 €; 39,50 €; 94,50 €</li>
+<li>Spalte G (G14 bis G21): 1,75 €; 1,85 €; 1,70 €; 1,15 €; 0,90 €; 16,40 €; 4,60 €; 7,75 €</li>
+<li>Spalte H (H14 bis H21): 9,11 %; 8,11 %; 8,06 %; 11,56 %; 11,04 %; 12,16 %; 11,65 %; 8,20 %</li>
+<li>Größte Preisspanne (B23): 16,40 €</li>
+<li>Niedrigster Angebotspreis (B24): 7,25 €</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte E (ab E14): <code>=MIN(B14:D14)</code>. Spalte F (ab F14): <code>=MAX(B14:D14)</code>. Spalte G (ab G14): <code>=F14-E14</code>. Spalte H (ab H14): <code>=G14/F14</code>. B23: <code>=MAX(G14:G21)</code>. B24: <code>=MIN(B14:D21)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>3 · Lieferzeiten auswerten</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 3 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Ermitteln Sie in B27 die kürzeste und in B28 die längste Lieferzeit sowie in B29 die Spannweite (längste minus kürzeste).</li>
+<li>Berechnen Sie in B30 die durchschnittliche Lieferzeit.</li>
+<li>Zeigen Sie in Spalte C für jede Bestellung die Abweichung vom Durchschnitt an.</li>
+<li>Beantworten Sie in B31: Bei wie vielen Bestellungen liegt die Lieferzeit mindestens 2 Tage über dem Durchschnitt? Prüfen Sie dies über die Spalte C.</li>
+<li>Ändern Sie testweise die Lieferzeit von B-5007 auf 20 Tage. Welche Werte ändern sich? Setzen Sie anschließend den ursprünglichen Wert wieder ein.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte C („Abweichung vom Durchschnitt“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Die Abweichungen in Spalte C sind negativ, wenn die Bestellung schneller war als der Durchschnitt.</li>
+<li>Nach der Änderung von B-5007 steigen der Durchschnitt, die längste Lieferzeit und die Spannweite. Die kürzeste Lieferzeit bleibt gleich.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte C (C14 bis C25): -1,25; -0,25; -2,25; 1,75; -1,25; 0,75; 4,75; -1,25; -0,25; -2,25; 2,75; -1,25</li>
+<li>Kürzeste Lieferzeit (B27): 2</li>
+<li>Längste Lieferzeit (B28): 9</li>
+<li>Spannweite (B29): 7</li>
+<li>Durchschnitt (B30): 4,25</li>
+<li>Antwort (B31): 2 Bestellungen (B-5007 und B-5011)</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte C (ab C14): <code>=B14-$B$30</code>. B27: <code>=MIN(B14:B25)</code>. B28: <code>=MAX(B14:B25)</code>. B29: <code>=B28-B27</code>. B30: <code>=MITTELWERT(B14:B25)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>4 · Angebote vergleichen</h3><span class="lvl time">10 min +</span></div><p>Suchen Sie für einen Artikel Ihrer Wahl Preise von fünf Anbietern im Internet. Legen Sie eine Tabelle an. Ermitteln Sie günstigsten und teuersten Preis, die Spanne und den Durchschnitt.</p>
+</div><h2>4. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="2"><p class="q">Welche Funktion liefert den höchsten Wert eines Bereichs?</p><ol><li>MIN</li><li>MAX</li><li>SUMME</li></ol><p class="fb" data-ok="Richtig. MAX sucht den größten Wert, MIN den kleinsten." data-no="MIN liefert den kleinsten Wert, SUMME addiert. Den größten Wert liefert MAX."></p></div><div class="qa" data-right="1"><p class="q">Sie ändern in der Preisliste den teuersten Artikel auf 20,00 €. Was passiert mit der Zelle, in der =MAX(C4:C15) steht?</p><ol><li>Sie zeigt automatisch den neuen höchsten Preis an</li><li>Sie zeigt weiter den alten Preis, die Formel muss neu eingegeben werden</li><li>Es erscheint eine Fehlermeldung</li></ol><p class="fb" data-ok="Richtig. Eine Funktion rechnet bei jeder Änderung neu." data-no="Funktionen rechnen automatisch neu. Das ist ihr großer Vorteil gegenüber eingetippten Zahlen."></p></div><div class="qa" data-right="1"><p class="q">Wie berechnen Sie die Preisspanne (Unterschied zwischen höchstem und niedrigstem Preis)?</p><ol><li>=MAX(C4:C15)-MIN(C4:C15)</li><li>=MAX(C4:C15)+MIN(C4:C15)</li><li>=MITTELWERT(C4:C15)</li></ol><p class="fb" data-ok="Richtig. Funktionen lassen sich in Rechnungen verwenden." data-no="Die Spanne ist der Unterschied. Also wird der kleinste Wert vom größten abgezogen."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

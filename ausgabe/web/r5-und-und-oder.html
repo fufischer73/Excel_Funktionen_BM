@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UND und ODER – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="r5">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Mehrere Bedingungen mit UND verknüpfen.</li><li>Alternative Bedingungen mit ODER verknüpfen.</li><li>Erkennen, wann UND und wann ODER passt.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Bei der BüroComfort GmbH gelten Regeln mit mehreren Bedingungen:</p>
+<ul>
+<li>Einen Bonus erhalten Bonuskunden, <strong>und</strong> ihr Bestellwert muss mindestens 200,00 € betragen.</li>
+<li>Der Standardversand gilt für Bestellungen aus Deutschland <strong>oder</strong> aus Österreich.</li>
+</ul>
+<p>Mit <strong>UND</strong> und <strong>ODER</strong> verknüpfen Sie Bedingungen. Beide Funktionen liefern <strong>WAHR</strong> oder <strong>FALSCH</strong>.</p>
+<h2>2. UND</h2>
+<p><code>=UND(Bedingung1; Bedingung2; …)</code></p>
+<p>UND liefert nur dann <strong>WAHR</strong>, wenn <strong>alle</strong> Bedingungen stimmen. Eine einzige falsche Bedingung macht das Ergebnis FALSCH.</p>
+<p>Beispiel: <code>=UND(B4=&quot;Ja&quot;;C4&gt;=200)</code></p>
+<h2>3. ODER</h2>
+<p><code>=ODER(Bedingung1; Bedingung2; …)</code></p>
+<p>ODER liefert <strong>WAHR</strong>, wenn <strong>mindestens eine</strong> Bedingung stimmt. Nur wenn alle falsch sind, ist das Ergebnis FALSCH.</p>
+<p>Beispiel: <code>=ODER(D4=&quot;DE&quot;;D4=&quot;AT&quot;)</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Wann WAHR?</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UND</td>
+<td>wenn <strong>alle</strong> Bedingungen stimmen</td>
+<td>Bonuskunde <strong>und</strong> Bestellwert ≥ 200</td>
+</tr>
+<tr>
+<td>ODER</td>
+<td>wenn <strong>mindestens eine</strong> Bedingung stimmt</td>
+<td>Land ist DE <strong>oder</strong> AT</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box warn"><div class="box-title">Typische Fehler</div><ul>
+<li>Text vergleichen Sie mit Anführungszeichen: <code>D4=&quot;DE&quot;</code>, nicht <code>D4=DE</code>.</li>
+<li>Bei ODER schreiben Sie jede Bedingung vollständig: <code>ODER(D4=&quot;DE&quot;;D4=&quot;AT&quot;)</code>, nicht <code>ODER(D4=&quot;DE&quot;;&quot;AT&quot;)</code>.</li>
+<li>Mit UND geht nie „DE und AT“ in derselben Zelle. Hier brauchen Sie ODER.</li>
+</ul>
+</div><h2>4. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Kunden- und Bestelldaten</div><p>Tabellenblatt „Kunden“ mit zehn Kunden. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 2 Standard“, „Aufgabe 3 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/r5-kunden.xlsx" download>r5-kunden.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Bedingungen prüfen</h3><span class="lvl time">12 min</span></div><p>Lösen Sie den Auftrag aus dem Blatt „Aufgabenstellung“:</p>
+<ul>
+<li>Spalte E: Bonuskunde <strong>und</strong> Bestellwert ab 200,00 €</li>
+<li>Spalte F: Land DE <strong>oder</strong> AT</li>
+<li>Grenzfälle erklären (200,00 € und 199,99 €)</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte E zeigt WAHR oder FALSCH und verwendet UND.</li>
+<li>Spalte F zeigt WAHR oder FALSCH und verwendet ODER.</li>
+<li>K-2304 (Bonuskunde, 200,00 €) ist in Spalte E WAHR.</li>
+<li>K-2307 (Bonuskunde, 199,99 €) ist in Spalte E FALSCH.</li>
+</ul>
+</div><details><summary>Hilfe 1: Was muss gelten?</summary><p>In Spalte E müssen zwei Dinge gleichzeitig gelten. In Spalte F reicht eine von zwei Möglichkeiten.</p>
+</details><details><summary>Lösung</summary><p>Spalte E: <code>=UND(B4=&quot;Ja&quot;;C4&gt;=200)</code>. Spalte F: <code>=ODER(D4=&quot;DE&quot;;D4=&quot;AT&quot;)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Zusatz zu Aufgabe 1 · Beide Regeln in einer Formel</h3><span class="lvl time">8 min</span></div><p>Prüfen Sie in Spalte H, ob ein Kunde Bonuskunde ist <strong>und</strong> aus Deutschland <strong>oder</strong> Österreich kommt. Sie können ODER in UND einsetzen: <code>=UND(B4=&quot;Ja&quot;;ODER(D4=&quot;DE&quot;;D4=&quot;AT&quot;))</code>. Prüfen Sie, bei welchen Kunden das Ergebnis WAHR ist.</p>
+</div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Kreditlimit prüfen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 2 Standard“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Prüfen Sie in Spalte E mit UND, ob das Limit erhöht werden kann (WAHR oder FALSCH).</li>
+<li>Prüfen Sie in Spalte F mit ODER, ob eine Einzelfallprüfung nötig ist.</li>
+<li>Beantworten Sie in B26: Bei wie vielen Kunden ist weder eine Erhöhung möglich noch eine Prüfung nötig?</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte E („Limit erhöhen?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Prüfung nötig?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Bei genau 5.000 € (Demo-Möbel GmbH) ist die Bedingung „mindestens 5.000“ erfüllt.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte E (E14 bis E21): WAHR; FALSCH; FALSCH; WAHR; FALSCH; FALSCH; FALSCH; WAHR</li>
+<li>Spalte F (F14 bis F21): FALSCH; FALSCH; FALSCH; FALSCH; WAHR; FALSCH; WAHR; FALSCH</li>
+<li>Antwort (B26): 3 Kunden (Test-Gastro e. K., Beispiel-Spedition AG, Muster-Elektro GmbH)</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte E (ab E14): <code>=UND(B14&gt;=5000;C14=&quot;gut&quot;;D14=0)</code>. Spalte F (ab F14): <code>=ODER(C14=&quot;schlecht&quot;;D14&gt;=2)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>3 · Urlaubsanträge prüfen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 3 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Prüfen Sie in Spalte F mit UND, ob der Antrag genehmigt werden kann.</li>
+<li>Prüfen Sie in Spalte G mit ODER, ob eine Sonderprüfung nötig ist.</li>
+<li>Beantworten Sie in B25: Welche Anträge werden abgelehnt, obwohl keine Sonderprüfung nötig ist, und warum?</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte F („Genehmigt?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Sonderprüfung?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Prüfen Sie U-02 (Tage = Resturlaub) und U-08: Beide Anträge werden genehmigt.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte F (F14 bis F21): WAHR; WAHR; WAHR; FALSCH; FALSCH; FALSCH; FALSCH; WAHR</li>
+<li>Spalte G (G14 bis G21): FALSCH; FALSCH; WAHR; FALSCH; WAHR; WAHR; FALSCH; FALSCH</li>
+<li>Antwort (B25): U-04: Die Vertretung ist nicht gesichert. U-07: Die beantragten Tage übersteigen den Resturlaub</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte F (ab F14): <code>=UND(B14&lt;=C14;D14=&quot;ja&quot;;E14=&quot;nein&quot;)</code>. Spalte G (ab G14): <code>=ODER(B14&gt;10;E14=&quot;ja&quot;)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>4 · Eigene Regel</h3><span class="lvl time">10 min +</span></div><p>Denken Sie sich eine Regel mit zwei Bedingungen aus, zum Beispiel für eine Rabattaktion oder für die Zulassung zu einem Kurs. Legen Sie eine kleine Tabelle an und prüfen Sie die Regel mit UND oder ODER.</p>
+</div><h2>Videos & Hilfe</h2><div class="media" data-ids="ms-und"></div>
+<h2>5. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="2"><p class="q">Ein Kunde ist Bonuskunde („Ja“) und bestellt für 150,00 €. Die Regel lautet UND(B4=&quot;Ja&quot;;C4&gt;=200). Welches Ergebnis erscheint?</p><ol><li>WAHR</li><li>FALSCH</li><li>Ein Fehler</li></ol><p class="fb" data-ok="Richtig. Bei UND müssen alle Bedingungen stimmen. 150 ist nicht ≥ 200." data-no="UND ist nur WAHR, wenn alle Bedingungen zutreffen. Hier trifft die zweite nicht zu."></p></div><div class="qa" data-right="2"><p class="q">Eine Bestellung kommt aus Dänemark („DK“). Die Regel lautet ODER(D4=&quot;DE&quot;;D4=&quot;AT&quot;). Welches Ergebnis erscheint?</p><ol><li>WAHR</li><li>FALSCH</li><li>Ein Fehler</li></ol><p class="fb" data-ok="Richtig. DK ist weder DE noch AT. Keine Bedingung stimmt." data-no="ODER ist WAHR, sobald mindestens eine Bedingung stimmt. Hier stimmt keine."></p></div><div class="qa" data-right="2"><p class="q">Der Vertrieb möchte Kunden finden, die aus Deutschland oder Österreich kommen. Welche Funktion passt?</p><ol><li>UND</li><li>ODER</li><li>WENN allein</li></ol><p class="fb" data-ok="Richtig. Ein Land kann nicht gleichzeitig DE und AT sein. Mit UND würde nie etwas gefunden." data-no="Ein Land kann nicht beides gleichzeitig sein. Gesucht ist „das eine oder das andere“."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

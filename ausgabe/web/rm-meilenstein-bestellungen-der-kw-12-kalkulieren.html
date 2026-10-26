@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meilenstein: Bestellungen der KW 12 kalkulieren – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="rm">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Summe, Durchschnitt, kleinsten und größten Wert mit Funktionen ermitteln.</li><li>Rabatt, Zusatzbonus und Versandart mit WENN, UND und ODER berechnen.</li><li>Eine komplette Kalkulation übersichtlich und nach Vorgabe gestalten.</li></ul></div><h2>1. Ihr Auftrag</h2>
+<p>Sie arbeiten in der Abteilung Verwaltung der BüroComfort GmbH. Die Buchhaltung benötigt für die Kalenderwoche 12 eine vollständige Kalkulation aller Bestellungen.</p>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Bestellungen KW 12</div><p>Tabellenblatt „Bestellungen KW 12“ mit 15 Bestellungen. Das Blatt „Aufgabenstellung“ enthält alle Regeln und Aufträge.</p>
+<p><a class="btn" href="material/rm-kalkulation.xlsx" download>rm-kalkulation.xlsx herunterladen</a></p></div><p>Lesen Sie zuerst das Blatt „Aufgabenstellung“. Es nennt die Regeln:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Regel</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rabatt</td>
+<td>5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 €</td>
+</tr>
+<tr>
+<td>Zusatzbonus</td>
+<td>2 % des Bestellwerts für Bonuskunden ab 300,00 € Bestellwert</td>
+</tr>
+<tr>
+<td>Versandart</td>
+<td>Deutschland oder Österreich = „Standard“, sonst „Ausland“</td>
+</tr>
+</tbody>
+</table></div>
+<h2>2. Was Sie abgeben</h2>
+<ul>
+<li>Rabattsatz und Rabatt in Euro für jede Bestellung</li>
+<li>Zusatzbonus in Euro</li>
+<li>Versandart</li>
+<li>Zahlbetrag (Bestellwert minus Rabatt minus Zusatzbonus)</li>
+<li>Kennzahlen: Summe der Bestellwerte, Durchschnitt, größter und kleinster Bestellwert, Summe der Rabatte, Summe der Zusatzboni</li>
+<li>Formatierung nach dem Corporate Design der BüroComfort GmbH und eine Fußzeile mit Ihrem Namen und Ihrer Klasse</li>
+</ul>
+<h2>3. Bewertungsraster</h2>
+<p>Das Raster sehen Sie <strong>vor</strong> der Arbeit. So wissen Sie, worauf es ankommt.</p>
+<h2>So schaut Ihre Lehrkraft drauf</h2><p>Damit Sie wissen, worauf es ankommt – das ist das Bewertungsraster:</p><div class="table-wrap"><table><tr><th>Kriterium</th><th>✔ erreicht</th><th>★ besonders gut</th></tr><tr><td>Kennzahlen</td><td>Summe, Durchschnitt, größter und kleinster Bestellwert sowie die Summen der Rabatte und Zusatzboni sind richtig berechnet.</td><td>Die Kennzahlen sind zusätzlich durch eine zweite Rechnung gegengeprüft, zum Beispiel Summe der Zahlbeträge plus Rabatte plus Boni.</td></tr><tr><td>WENN-Logik</td><td>Rabattsatz und Rabatt stimmen für alle Bestellungen, auch an den Grenzen 100,00 € und 1.000,00 €.</td><td>Die Formel ist übersichtlich aufgebaut, die Grenzfälle sind kurz erklärt.</td></tr><tr><td>UND und ODER</td><td>Zusatzbonus und Versandart stimmen für alle Bestellungen, auch bei genau 300,00 €.</td><td>Die Regeln sind in einem Satz neben der Tabelle verständlich beschrieben.</td></tr><tr><td>Formeln statt Werte</td><td>Alle Ergebnisse sind Formeln mit Zellbezügen. Es wurde kein Ergebnis eingetippt.</td><td>Die Formeln lassen sich ohne Änderung nach unten kopieren.</td></tr><tr><td>Gestaltung nach Corporate Design</td><td>Arial 10, Überschrift zentriert 12 fett, Prozent mit zwei, Zahlen ohne und Euro mit zwei Nachkommastellen, Fußzeile mit Name und Klasse.</td><td>Die Tabelle ist druckfertig und ohne Erklärung gut lesbar.</td></tr></table></div>
+<h2>4. Checkliste vor der Abgabe</h2>
+<div class="checkliste"><div class="check-title">Vor der Abgabe prüfen</div><ul class="check">
+<li>Alle 15 Zeilen haben Rabattsatz, Rabatt, Zusatzbonus, Versandart und Zahlbetrag.</li>
+<li>Die Grenzfälle sind richtig: B-5008 (1.000,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).</li>
+<li>Die Kennzahlen stehen in der Kennzahlen-Tabelle ab Zeile 21.</li>
+<li>Ergebnisse sind Formeln. Es steht keine eingetippte Zahl in einer Ergebniszelle.</li>
+<li>Zahlenformate, Schrift und Überschrift entsprechen dem Corporate Design.</li>
+<li>Die Fußzeile enthält Name und Klasse (rechtsbündig).</li>
+<li>Die Datei ist als .xlsx gespeichert.</li>
+</ul>
+</div><div class="box tip"><div class="box-title">Wenn Sie nicht weiterkommen</div><p>Schlagen Sie in den Modulen nach: SUMME und MITTELWERT in <a href="r1-summe-und-mittelwert.html">R1</a>, MIN und MAX in <a href="r2-min-und-max.html">R2</a>, WENN in <a href="r3-wenn.html">R3</a>, verschachteltes WENN in <a href="r4-wenn-verschachtelt.html">R4</a>, UND und ODER in <a href="r5-und-und-oder.html">R5</a> und <a href="r6-und-und-oder-mit-wenn.html">R6</a>.</p>
+</div><h2>Zusatz für Schnelle (freiwillig)</h2>
+<p>Wer vor dem Ende der Zeit fertig ist, kann die folgende Erweiterung bearbeiten. Sie wird nicht für die Bewertung des Meilensteins herangezogen. Die Erweiterung finden Sie im Blatt „Erweiterung KW 13“ derselben Datei.</p>
+<div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Erweiterung · Kalkulation mit Express-Versand</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Erweiterung KW 13“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Ermitteln Sie in Spalte F den Rabattsatz (5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 €) und in Spalte G den Rabatt in Euro.</li>
+<li>Berechnen Sie in Spalte H den Zusatzbonus (2 % des Bestellwerts für Bonuskunden ab 300,00 €).</li>
+<li>Legen Sie in Spalte I die Versandart fest (Express, Standard oder Ausland).</li>
+<li>Berechnen Sie in Spalte J den Zahlbetrag.</li>
+<li>Ermitteln Sie in den Zellen B28 bis B31 die Summe der Zahlbeträge, den Durchschnitt, den größten Zahlbetrag und die Anzahl der Expresssendungen.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte F („Rabattsatz“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Rabatt in €“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Zusatzbonus in €“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte I („Versandart“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte J („Zahlbetrag“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Grenzfälle: B-5106 (500,00 €, Bonuskunde, DE) wird Express. B-5109 (300,00 €) erhält den Zusatzbonus. B-5108 (299,99 €) nicht.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte F (F14 bis F25): 10,00 %; 0,00 %; 15,00 %; 5,00 %; 5,00 %; 10,00 %; 15,00 %; 5,00 %; 5,00 %; 10,00 %; 5,00 %; 15,00 %</li>
+<li>Spalte G (G14 bis G25): 62,00 €; 0,00 €; 187,50 €; 24,00 €; 17,00 €; 50,00 €; 150,00 €; 15,00 €; 15,00 €; 76,04 €; 5,00 €; 283,50 €</li>
+<li>Spalte H (H14 bis H25): 12,40 €; 0,00 €; 25,00 €; 0,00 €; 6,80 €; 10,00 €; 0,00 €; 0,00 €; 6,00 €; 0,00 €; 0,00 €; 37,80 €</li>
+<li>Spalte I (I14 bis I25): „Express“; „Standard“; „Express“; „Ausland“; „Ausland“; „Express“; „Standard“; „Standard“; „Standard“; „Standard“; „Standard“; „Ausland“</li>
+<li>Spalte J (J14 bis J25): 545,60 €; 95,50 €; 1.037,50 €; 456,00 €; 316,20 €; 440,00 €; 850,00 €; 284,99 €; 279,00 €; 684,36 €; 95,00 €; 1.568,70 €</li>
+<li>Summe Zahlbeträge (B28): 6.652,85 €</li>
+<li>Durchschnitt Zahlbetrag (B29): 554,40 €</li>
+<li>Größter Zahlbetrag (B30): 1.568,70 €</li>
+<li>Expresssendungen (B31): 3</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte F (ab F14): <code>=WENN(E14&gt;=1000;0,15;WENN(E14&gt;=500;0,1;WENN(E14&gt;=100;0,05;0)))</code>. Spalte G (ab G14): <code>=E14*F14</code>. Spalte H (ab H14): <code>=WENN(UND(C14=&quot;Ja&quot;;E14&gt;=300);E14*0,02;0)</code>. Spalte I (ab I14): <code>=WENN(UND(D14=&quot;DE&quot;;C14=&quot;Ja&quot;;E14&gt;=500);&quot;Express&quot;;WENN(ODER(D14=&quot;DE&quot;;D14=&quot;AT&quot;);&quot;Standard&quot;;&quot;Ausland&quot;))</code>. Spalte J (ab J14): <code>=E14-G14-H14</code>. B28: <code>=SUMME(J14:J25)</code>. B29: <code>=MITTELWERT(J14:J25)</code>. B30: <code>=MAX(J14:J25)</code>. B31: <code>=ZÄHLENWENN(I14:I25;&quot;Express&quot;)</code>.</p>
+</details></div><h2>5. Abgabe</h2>
+<h2>Abgabe</h2><div class="box download"><div class="box-title">📤 Meilenstein Stufe 1 abgeben</div><p>Laden Sie Ihre fertige Kalkulation als Excel-Datei (.xlsx) hoch. Speichern Sie auch aus OnlyOffice als .xlsx.</p>
+<div class="abgabe" data-option="Meilenstein: Bestellungen der KW 12 kalkulieren"></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

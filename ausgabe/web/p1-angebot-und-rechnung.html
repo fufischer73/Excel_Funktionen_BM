@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angebot und Rechnung – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="p1">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>WENN, SVERWEIS und RUNDEN in einer prüfungsnahen Aufgabe kombinieren.</li><li>Ein Angebot mit Mengenrabatt, Versandkosten und Umsatzsteuer berechnen.</li><li>Das Ergebnis selbst kontrollieren und nach Vorgabe gestalten.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Ab jetzt arbeiten Sie an Aufgaben, die in Aufbau und Umfang einer Prüfungsaufgabe ähneln. Es gibt keine Schritt-für-Schritt-Anleitung mehr. Sie bekommen eine Ausgangssituation, mehrere Aufträge mit Punkten und müssen selbst entscheiden, welche Funktion passt.</p>
+<p>In dieser Aufgabe erstellen Sie ein <strong>Angebot</strong> für einen Kunden. Sie kombinieren dabei SVERWEIS (Stammdaten holen), eine Mengenstaffel (SVERWEIS mit WAHR), WENN (Versandkosten) und RUNDEN (Beträge auf Cent).</p>
+<div class="box tip"><div class="box-title">So gehen Sie bei Prüfungsaufgaben vor</div><ol>
+<li><strong>Lesen</strong> Sie zuerst die ganze Aufgabe, auch die Regeln. Markieren Sie Zahlen und Bedingungen.</li>
+<li><strong>Planen</strong> Sie die Reihenfolge: Erst holen Sie Daten, dann rechnen Sie, dann gestalten Sie.</li>
+<li><strong>Arbeiten</strong> Sie mit Zellbezügen und festgesetzten Bereichen. Tippen Sie nie ein Ergebnis ein.</li>
+<li><strong>Prüfen</strong> Sie am Ende mit Stichproben und mit dem Taschenrechner.</li>
+<li><strong>Formatieren</strong> Sie nach Vorgabe und ergänzen Sie die Fußzeile.</li>
+</ol>
+</div><h2>2. Die Aufgabe</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Angebot für Kunde K-4103</div><p>Tabellenblätter „Angebot“ und „Stammdaten“. Das Blatt „Aufgabenstellung“ enthält Situation, Regeln und Aufträge mit Punkten.</p>
+<p><a class="btn" href="material/p1-angebot.xlsx" download>p1-angebot.xlsx herunterladen</a></p></div><p>Bearbeitungszeit: etwa 30 Minuten. Lesen Sie zuerst das Blatt „Aufgabenstellung“.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Auftrag</th>
+<th>Inhalt</th>
+<th>Punkte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Kundenname, Ort und Gültigkeit des Angebots</td>
+<td>6</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bezeichnung, Einzelpreis und Mengenrabattsatz je Position</td>
+<td>9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gesamtpreis je Position, gerundet</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Summe netto, Versandkosten, Nettobetrag, Umsatzsteuer, Gesamtbetrag</td>
+<td>12</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Gestaltung nach Corporate Design, Fußzeile</td>
+<td>7</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Gesamt</strong></td>
+<td><strong>40</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Angebot erstellen</h3><span class="lvl time">30 min</span></div><p>Lösen Sie alle fünf Aufträge im Blatt „Aufgabenstellung“.</p>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Kundenname und Ort stammen per SVERWEIS aus dem Kundenstamm. Das Angebot ist 14 Tage gültig.</li>
+<li>Bezeichnung und Einzelpreis stammen per SVERWEIS aus dem Artikelstamm (FALSCH).</li>
+<li>Der Mengenrabatt stammt aus der Mengenstaffel (WAHR).</li>
+<li>Alle Beträge sind mit RUNDEN auf zwei Nachkommastellen gerundet.</li>
+<li>Die Versandkosten sind mit WENN berechnet und stehen nicht fest in der Zelle.</li>
+<li>Alle Bereiche sind mit Dollarzeichen fixiert.</li>
+<li>Das Angebot ist nach dem Corporate Design formatiert und hat eine Fußzeile mit Name und Klasse.</li>
+</ul>
+</div><details><summary>Hilfe 1: Vorgehen</summary><p>Holen Sie zuerst die Daten aus den Stammdaten, dann berechnen Sie die Positionen, dann die Summen. Der Mengenrabatt hängt von der Menge der Position ab, nicht vom Gesamtbetrag.</p>
+</details><details><summary>Hilfe 2: Welche Funktion wofür?</summary><p>Kunde und Artikel: SVERWEIS mit FALSCH. Mengenrabatt: SVERWEIS mit WAHR. Gesamtpreis: Menge mal Einzelpreis mal (1 minus Rabatt), gerundet. Versandkosten: WENN der Nettobetrag unter der Grenze liegt, fallen sie an. Umsatzsteuer: Nettobetrag mal Steuersatz, gerundet.</p>
+</details><details><summary>Kontrolle: Erwartete Ergebnisse</summary><p>Der Kunde ist die Modellgarten e. K. in Flensburg. Die Gesamtpreise der Positionen betragen 40,05 €, 28,39 €, 29,70 €, 25,65 €, 15,80 € und 15,00 €. Summe netto: 154,59 €. Versandkosten: 7,90 €, weil 154,59 € unter 200,00 € liegen. Nettobetrag: 162,49 €. Umsatzsteuer: 30,87 €. Gesamtbetrag: 193,36 €.</p>
+</details><details><summary>Lösung</summary><p>B4: <code>=SVERWEIS(B3;Stammdaten!$F$4:$I$11;2;FALSCH)</code>. B5: wie B4 mit Spaltenindex 3. B7: <code>=B6+14</code>. C12: <code>=SVERWEIS(B12;Stammdaten!$A$4:$D$15;2;FALSCH)</code>. E12: wie C12 mit Spaltenindex 3. F12: <code>=SVERWEIS(D12;Stammdaten!$K$4:$L$7;2;WAHR)</code>. G12: <code>=RUNDEN(D12*E12*(1-F12);2)</code>. G19: <code>=SUMME(G12:G17)</code>. G20: <code>=WENN(G19&gt;=B8;0;B9)</code>. G21: <code>=G19+G20</code>. G22: <code>=RUNDEN(G21*F22;2)</code>. G23: <code>=G21+G22</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>2 · Was wäre, wenn?</h3><span class="lvl time">10 min</span></div><p>Ändern Sie testweise die Menge der Kugelschreiber von 50 auf 100. Wie verändern sich Mengenrabatt, Summe netto und Versandkosten? Ab welchem Nettobetrag entfallen die Versandkosten? Erklären Sie in zwei Sätzen, warum sich der Gesamtbetrag trotz größerer Menge nur wenig erhöht.</p>
+<details><summary>Hinweis</summary><p>Bei 100 Stück gilt der Mengenrabatt von 15 %. Der Preis je Stück sinkt, der Gesamtpreis der Position steigt deshalb weniger stark als die Menge. Ab einem Nettobetrag von 200,00 € entfallen die Versandkosten.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>3 · Eigenes Angebot</h3><span class="lvl time">10 min +</span></div><p>Entwerfen Sie ein eigenes Angebot für ein fiktives Unternehmen mit mindestens fünf Positionen. Verwenden Sie einen Stamm mit SVERWEIS, eine Staffel und mindestens eine WENN-Regel. Verwenden Sie keine personenbezogenen Daten.</p>
+</div><h2>3. Abgabe</h2>
+<h2>Abgabe</h2><div class="box download"><div class="box-title">📤 Abgabe Angebot</div><p>Laden Sie Ihr fertiges Angebot als Excel-Datei (.xlsx) hoch.</p>
+<div class="abgabe" data-option="Angebot und Rechnung"></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

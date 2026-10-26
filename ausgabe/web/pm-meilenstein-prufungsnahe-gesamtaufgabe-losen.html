@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meilenstein: Prüfungsnahe Gesamtaufgabe lösen – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="pm">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Alle Funktionen des Lernpfads in einer umfangreichen Aufgabe kombinieren.</li><li>Stammdaten, Rechnung, Fristen und Auswertung in einer Datei verbinden.</li><li>Die eigene Arbeit selbst kontrollieren und Prüfungsanforderungen erfüllen.</li></ul></div><h2>1. Ihr Auftrag</h2>
+<p>Dies ist die Abschlussaufgabe des Lernpfads. Sie ähnelt in Aufbau und Umfang einer Prüfungsaufgabe: mehrere Blätter, viele Aufträge mit Punkten, keine Schritt-für-Schritt-Anleitung. Sie brauchen fast alle Funktionen, die Sie kennengelernt haben.</p>
+<p>Die Abteilung Verwaltung der BüroComfort GmbH wertet die 24 Bestellungen des zweiten Quartals aus. Sie berechnen für jede Bestellung Nettowert, Rabatt, Umsatzsteuer und Bruttobetrag, prüfen, welche Bestellungen zum Stichtag überfällig sind, und erstellen eine Auswertung je Kundengruppe.</p>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Quartalsauswertung der Bestellungen</div><p>Tabellenblätter „Bestellungen“, „Auswertung“ und „Stammdaten“. Das Blatt „Aufgabenstellung“ enthält Situation, Regeln und alle Aufträge mit Punkten.</p>
+<p><a class="btn" href="material/pm-gesamtaufgabe.xlsx" download>pm-gesamtaufgabe.xlsx herunterladen</a></p></div><p>Lesen Sie zuerst das Blatt „Aufgabenstellung“. Bearbeitungszeit: etwa 50 Minuten.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Auftrag</th>
+<th>Inhalt</th>
+<th>Punkte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Stammdaten holen (Kunde, Gruppe, Artikel, Preis)</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Nettowert, Rabatt, Umsatzsteuer, Bruttobetrag</td>
+<td>18</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fälligkeit und Status zum Stichtag</td>
+<td>10</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Auswertung je Kundengruppe und Kennzahlen</td>
+<td>16</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kontrolle und Antwortsatz</td>
+<td>6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gestaltung nach Corporate Design, Fußzeile</td>
+<td>8</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Gesamt</strong></td>
+<td><strong>70</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="box tip"><div class="box-title">Zeitplan</div><p>Planen Sie Ihre Zeit: Etwa 10 Minuten für das Lesen und Planen, 30 Minuten für die Bestellungen, 10 Minuten für die Auswertung, 10 Minuten für Kontrolle und Gestaltung. Arbeiten Sie die Aufträge der Reihe nach ab. Kommen Sie bei einem Auftrag nicht weiter, gehen Sie zum nächsten und kehren später zurück.</p>
+</div><h2>2. Bewertungsraster</h2>
+<p>Das Raster sehen Sie <strong>vor</strong> der Arbeit. So wissen Sie, worauf es ankommt.</p>
+<h2>So schaut Ihre Lehrkraft drauf</h2><p>Damit Sie wissen, worauf es ankommt – das ist das Bewertungsraster:</p><div class="table-wrap"><table><tr><th>Kriterium</th><th>✔ erreicht</th><th>★ besonders gut</th></tr><tr><td>Stammdaten nachschlagen</td><td>Kundenname, Kundengruppe, Artikelbezeichnung und Einzelpreis stammen per SVERWEIS mit FALSCH aus den Stammdaten und stimmen. Die Bereiche sind fixiert.</td><td>Die Wahl von FALSCH und WAHR ist in einem Satz begründet.</td></tr><tr><td>Rechnung und Rundung</td><td>Nettowert, Rabattsatz (WAHR), Rabatt, Nettobetrag, Umsatzsteuer und Bruttobetrag sind für alle 24 Bestellungen richtig und kaufmännisch gerundet.</td><td>Die Grenzfälle der Rabattstaffel sind geprüft und kurz benannt.</td></tr><tr><td>Fälligkeit und Status</td><td>Fälligkeitsdatum und Status sind für alle Bestellungen richtig. Das Zahlungsziel stammt aus der Kundengruppe.</td><td>Der Status ändert sich korrekt, wenn Sie den Stichtag ändern.</td></tr><tr><td>Auswertung</td><td>Anzahl, Umsatz, Anteil und Rang je Kundengruppe sowie alle Kennzahlen sind richtig. Die Kontrolle in der Auswertung zeigt 0,00 €.</td><td>Der Antwortsatz ist vollständig und nennt Kundengruppe und Anteil.</td></tr><tr><td>Formeln statt Werte</td><td>Alle Ergebnisse sind Formeln mit Zellbezügen. Es wurde kein Ergebnis eingetippt. Die Datei enthält keine Fehlermeldung.</td><td>Die Formeln lassen sich ohne Änderung nach unten kopieren.</td></tr><tr><td>Gestaltung nach Corporate Design</td><td>Arial 10, Überschrift zentriert 12 fett, Prozent mit zwei, Zahlen ohne und Euro mit zwei Nachkommastellen, Datum als TT.MM.JJJJ, Fußzeile mit Name und Klasse auf beiden Blättern.</td><td>Die Tabellen sind druckfertig und ohne Erklärung gut lesbar.</td></tr></table></div>
+<h2>3. Checkliste vor der Abgabe</h2>
+<div class="checkliste"><div class="check-title">Vor der Abgabe prüfen</div><ul class="check">
+<li>Alle 24 Zeilen haben in den Spalten F bis Q Ergebnisse. Es steht keine Fehlermeldung wie #NV in der Datei.</li>
+<li>Alle SVERWEIS haben feste Bereiche. Bei Nummern steht FALSCH, bei der Rabattstaffel WAHR.</li>
+<li>Nettowert, Rabatt und Umsatzsteuer sind mit RUNDEN auf Cent gerundet.</li>
+<li>Die Auswertung enthält Anzahl, Umsatz, Anteil und Rang je Kundengruppe und alle sieben Kennzahlen.</li>
+<li>Die Kontrollzelle B27 zeigt 0,00 €. Die Anteile ergeben 100 %.</li>
+<li>Der Antwortsatz in A29 ist vollständig.</li>
+<li>Alle Ergebnisse sind Formeln. Es steht keine eingetippte Zahl in einer Ergebniszelle.</li>
+<li>Zahlenformate, Schrift und Überschriften stimmen auf beiden Blättern mit dem Corporate Design überein. Die Fußzeile enthält Name und Klasse.</li>
+<li>Die Datei ist als .xlsx gespeichert.</li>
+</ul>
+</div><details><summary>Hilfe: Vorgehen</summary><p>Erledigen Sie zuerst die Stammdaten in den Spalten F bis I. Alle weiteren Spalten rechnen mit diesen Ergebnissen. Für die Fälligkeit brauchen Sie die Kundengruppe: Das Zahlungsziel steht im Blatt „Stammdaten“ in der Tabelle der Zahlungsziele. Die Auswertung auf dem zweiten Blatt greift auf das Blatt „Bestellungen“ zu: Schreiben Sie vor den Bereich den Blattnamen, zum Beispiel <code>Bestellungen!$G$5:$G$28</code>.</p>
+</details><details><summary>Kontrolle: Erwartete Ergebnisse</summary><p>Gesamt: 24 Bestellungen mit einer Summe der Bruttobeträge von 12.786,51 €. Durchschnitt: 532,77 €. Größter Bruttobetrag: 2.477,66 €. Kleinster: 13,77 €. Überfällig zum Stichtag 15.06.2026 sind 17 Bestellungen mit 9.142,62 €. Kundengruppen: A 8 Bestellungen, 6.503,07 € (50,86 %, Rang 1). B 10 Bestellungen, 4.313,56 € (33,74 %, Rang 2). C 6 Bestellungen, 1.969,88 € (15,41 %, Rang 3). Die Kontrolle zeigt 0,00 €. Beispiel: B-1101 (Testwerk Elektro GmbH, Gruppe B, 40 Ordner) hat einen Nettowert von 99,60 € (kein Rabatt, knapp unter 100,00 €), 18,92 € Umsatzsteuer, 118,52 € Brutto und ist am 23.04.2026 fällig, also überfällig.</p>
+</details><details><summary>Lösung</summary><p>F5: <code>=SVERWEIS(C5;Stammdaten!$F$4:$I$11;2;FALSCH)</code>. G5: wie F5 mit Spaltenindex 4. H5: <code>=SVERWEIS(D5;Stammdaten!$A$4:$D$15;2;FALSCH)</code>. I5: wie H5 mit Spaltenindex 3. J5: <code>=RUNDEN(E5*I5;2)</code>. K5: <code>=SVERWEIS(J5;Stammdaten!$K$4:$L$7;2;WAHR)</code>. L5: <code>=RUNDEN(J5*K5;2)</code>. M5: <code>=J5-L5</code>. N5: <code>=RUNDEN(M5*$E$2;2)</code>. O5: <code>=M5+N5</code>. P5: <code>=B5+SVERWEIS(G5;Stammdaten!$N$4:$O$6;2;FALSCH)</code>. Q5: <code>=WENN(P5&lt;$B$2;&quot;überfällig&quot;;&quot;offen&quot;)</code>. Auswertung: B4: <code>=ZÄHLENWENN(Bestellungen!$G$5:$G$28;A4)</code>. C4: <code>=SUMMEWENN(Bestellungen!$G$5:$G$28;A4;Bestellungen!$O$5:$O$28)</code>. D4: <code>=C4/$C$7</code>. E4: <code>=RANG(C4;$C$4:$C$6;0)</code>. B11: <code>=ANZAHL2(Bestellungen!A5:A28)</code>. B12: <code>=SUMME(Bestellungen!O5:O28)</code>. B13: <code>=MITTELWERT(Bestellungen!O5:O28)</code>. B14: <code>=MAX(Bestellungen!O5:O28)</code>. B15: <code>=MIN(Bestellungen!O5:O28)</code>. B16: <code>=ZÄHLENWENN(Bestellungen!Q5:Q28;&quot;überfällig&quot;)</code>. B17: <code>=SUMMEWENN(Bestellungen!Q5:Q28;&quot;überfällig&quot;;Bestellungen!O5:O28)</code>. B27: <code>=RUNDEN(C7-B12;2)</code>.</p>
+</details><h2>4. Abgabe</h2>
+<h2>Abgabe</h2><div class="box download"><div class="box-title">📤 Meilenstein Stufe 4 abgeben</div><p>Laden Sie Ihre fertige Datei als Excel-Datei (.xlsx) hoch. Speichern Sie auch aus OnlyOffice als .xlsx.</p>
+<div class="abgabe" data-option="Meilenstein: Prüfungsnahe Gesamtaufgabe lösen"></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

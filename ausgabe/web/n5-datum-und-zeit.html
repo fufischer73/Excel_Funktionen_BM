@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datum und Zeit – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="n5">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Mit HEUTE das aktuelle Datum anzeigen und mit Datumsangaben rechnen.</li><li>Mit JAHR, MONAT und TAG ein Datum zerlegen.</li><li>Mit STUNDE und MINUTE Arbeitszeiten auswerten.</li><li>Mit TAGE360 Zinstage berechnen.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Im Büro rechnen Sie ständig mit Datum und Uhrzeit: Wann ist eine Rechnung fällig? Wie viele Tage ist sie überfällig? Wie lange hat jemand gearbeitet? Wie viele Zinstage sind für den Verzug zu berechnen? Excel kann das alles, weil es Datum und Uhrzeit als <strong>Zahlen</strong> speichert.</p>
+<p>In diesem Modul lernen Sie drei Gruppen von Funktionen kennen:</p>
+<ol>
+<li><strong>Datum:</strong> HEUTE, JAHR, MONAT, TAG</li>
+<li><strong>Uhrzeit:</strong> STUNDE, MINUTE</li>
+<li><strong>Zinstage:</strong> TAGE360</li>
+</ol>
+<h2>2. Datum</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Wirkung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HEUTE()</code></td>
+<td>aktuelles Datum, ohne Angaben in der Klammer</td>
+<td><code>=HEUTE()</code></td>
+</tr>
+<tr>
+<td><code>JAHR(Datum)</code></td>
+<td>Jahreszahl des Datums</td>
+<td><code>=JAHR(B4)</code> ergibt 2026</td>
+</tr>
+<tr>
+<td><code>MONAT(Datum)</code></td>
+<td>Monat als Zahl von 1 bis 12</td>
+<td><code>=MONAT(B4)</code> ergibt 3</td>
+</tr>
+<tr>
+<td><code>TAG(Datum)</code></td>
+<td>Tag des Monats</td>
+<td><code>=TAG(B4)</code> ergibt 2</td>
+</tr>
+</tbody>
+</table></div>
+<p>Weil ein Datum eine Zahl ist, können Sie rechnen:</p>
+<ul>
+<li>Fälligkeit: <code>=B4+C4</code> (Rechnungsdatum plus Zahlungsziel in Tagen)</li>
+<li>Restzeit: <code>=D4-HEUTE()</code> (Fälligkeit minus heute). Ein negatives Ergebnis bedeutet: überfällig.</li>
+</ul>
+<div class="box warn"><div class="box-title">Datum und Zahlenformat</div><p>Zeigt eine Zelle statt eines Datums eine Zahl wie 46113, ist das Zellenformat auf „Zahl“ gestellt. Stellen Sie das Format auf <strong>Datum</strong> (TT.MM.JJJJ). Umgekehrt zeigt eine Zelle mit einem Datumsformat nur dann ein Datum, wenn ein Datum darin steht. Die Jahreszahl formatieren Sie ohne Tausenderpunkt, sonst steht dort 2.026.</p>
+</div><div class="box tip"><div class="box-title">HEUTE ändert sich</div><p>Das Ergebnis von HEUTE ist bei jedem Öffnen ein anderes. Wenn Sie ein Ergebnis für einen bestimmten Tag festhalten wollen, tragen Sie das Datum fest ein. Rechnungsdaten sollten deshalb nie mit HEUTE berechnet werden, sondern mit dem festen Rechnungsdatum.</p>
+</div><h2>3. Uhrzeit</h2>
+<p>Auch eine Uhrzeit ist für Excel eine Zahl: ein Bruchteil eines Tages. Sie können Uhrzeiten voneinander abziehen, um eine Arbeitszeit zu erhalten.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Wirkung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>STUNDE(Zeit)</code></td>
+<td>Stundenteil einer Uhrzeit</td>
+<td><code>=STUNDE(E4)</code> bei 08:15 ergibt 8</td>
+</tr>
+<tr>
+<td><code>MINUTE(Zeit)</code></td>
+<td>Minutenteil einer Uhrzeit</td>
+<td><code>=MINUTE(E4)</code> bei 08:15 ergibt 15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nettoarbeitszeit: <code>=C4-B4-D4</code> (Ende minus Beginn minus Pause). Wenn Sie die Arbeitszeit als Dezimalzahl brauchen, zum Beispiel für die Lohnabrechnung, rechnen Sie: <code>=STUNDE(E4)+MINUTE(E4)/60</code>. 08:15 sind dann 8,25 Stunden.</p>
+<div class="box warn"><div class="box-title">Typische Fehler</div><ul>
+<li>Die Pause wird vergessen oder als Zahl 30 statt als Uhrzeit 00:30 eingegeben.</li>
+<li>Das Ergebnis erscheint als Datum oder als Zahl. Stellen Sie das Zellenformat auf Uhrzeit (hh:mm).</li>
+<li>Viertelstunden und Dezimalstunden werden verwechselt: 8:15 Uhr sind 8,25 Stunden und nicht 8,15.</li>
+</ul>
+</div><h2>4. Zinstage mit TAGE360</h2>
+<p>Bei Verzugszinsen rechnet man im Büro häufig mit einem Jahr zu <strong>360 Tagen</strong>, bestehend aus zwölf Monaten zu je 30 Tagen. Dafür gibt es TAGE360.</p>
+<p><code>=TAGE360(Ausgangsdatum; Enddatum)</code></p>
+<p>Beispiel: <code>=TAGE360(C4;D4)</code> liefert die Zinstage von der Fälligkeit (C4) bis zum Zahlungseingang (D4).</p>
+<p>Zinsen berechnen Sie dann so: <strong>Zinsen = Kapital × Zinssatz × Tage ÷ 360</strong>. In Excel: <code>=B4*$B$11*E4/360</code>.</p>
+<div class="box note"><div class="box-title">Zu beachten</div><p>TAGE360 hat ein drittes, optionales Argument für die Berechnungsmethode. Ohne Angabe gilt die US-Methode. Das spielt vor allem bei Datumsangaben am Monatsende eine Rolle. Die Beispiele in den Aufgaben liegen nicht am Monatsende. Wenn Ihre Lehrkraft eine bestimmte Methode vorgibt, richten Sie sich danach.</p>
+</div><h2>5. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Fristen, Arbeitszeit, Verzugszinsen</div><p>Drei Tabellenblätter: „Rechnungen“, „Arbeitszeit“ und „Verzugszinsen“. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 6 Anspruchsvoll“, „Aufgabe 7 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/n5-datum-zeit.xlsx" download>n5-datum-zeit.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Zahlungsfristen</h3><span class="lvl time">20 min</span></div><p>Lösen Sie die ersten beiden Aufträge im Blatt „Aufgabenstellung“ (Blatt „Rechnungen“):</p>
+<ul>
+<li>Fälligkeit (Spalte D)</li>
+<li>Jahr, Monat und Tag des Rechnungsdatums (Spalten E, F, G)</li>
+<li>Heutiges Datum (B12) und Tage bis zur Fälligkeit (Spalte H)</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Die Fälligkeit der ersten Rechnung ist der 01.04.2026.</li>
+<li>Die Spalten E bis G zeigen bei der ersten Rechnung 2026, 3 und 2.</li>
+<li>B12 enthält eine Formel mit HEUTE und zeigt das aktuelle Datum.</li>
+<li>Die Spalte H zeigt für überfällige Rechnungen negative Zahlen.</li>
+<li>Datumsangaben sind im Format TT.MM.JJJJ formatiert.</li>
+</ul>
+</div><details><summary>Hilfe: Rechnen mit Datum</summary><p>Ein Datum plus eine Zahl ergibt ein späteres Datum. Das Rechnungsdatum steht in Spalte B, das Zahlungsziel in Spalte C.</p>
+</details><details><summary>Lösung</summary><p>D4: <code>=B4+C4</code>. E4: <code>=JAHR(B4)</code>. F4: <code>=MONAT(B4)</code>. G4: <code>=TAG(B4)</code>. B12: <code>=HEUTE()</code>. H4: <code>=D4-$B$12</code>.</p>
+</details></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Arbeitszeit auswerten</h3><span class="lvl time">15 min</span></div><p>Lösen Sie den dritten Auftrag im Blatt „Aufgabenstellung“ (Blatt „Arbeitszeit“):</p>
+<ul>
+<li>Nettoarbeitszeit (Spalte E)</li>
+<li>Stunden und Minuten getrennt (Spalten F, G)</li>
+<li>Dezimalstunden (Spalte H)</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Die Nettoarbeitszeit am Montag beträgt 08:15.</li>
+<li>F und G zeigen am Montag 8 und 15.</li>
+<li>H zeigt am Montag 8,25 und am Freitag 6,00.</li>
+<li>Spalte E ist im Format hh:mm, Spalte H mit zwei Nachkommastellen formatiert.</li>
+</ul>
+</div><details><summary>Hilfe: Pause nicht vergessen</summary><p>Nettoarbeitszeit = Ende minus Beginn minus Pause. Die Pause steht in Spalte D.</p>
+</details><details><summary>Lösung</summary><p>E4: <code>=C4-B4-D4</code>. F4: <code>=STUNDE(E4)</code>. G4: <code>=MINUTE(E4)</code>. H4: <code>=F4+G4/60</code>.</p>
+</details></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>3 · Verzugszinsen berechnen</h3><span class="lvl time">15 min</span></div><p>Lösen Sie den vierten Auftrag im Blatt „Aufgabenstellung“ (Blatt „Verzugszinsen“):</p>
+<ul>
+<li>Verzugstage (Spalte E)</li>
+<li>Verzugszinsen (Spalte F), der Zinssatz steht in B11</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>E zeigt für R-2026-0301 19 Tage, für R-2026-0302 29 Tage, für R-2026-0303 43 Tage und für R-2026-0304 0 Tage.</li>
+<li>F zeigt für R-2026-0301 3,30 €.</li>
+<li>Der Zinssatz in B11 wurde mit festgesetztem Bezug verwendet.</li>
+</ul>
+</div><details><summary>Lösung</summary><p>E4: <code>=TAGE360(C4;D4)</code>. F4: <code>=B4*$B$11*E4/360</code>. Für R-2026-0301: 1.250 € × 5 % × 19 ÷ 360 = 3,30 €. Der Zinssatz in der Datei ist ein angenommener Wert für die Übung.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>4 · Überfällig oder nicht?</h3><span class="lvl time">10 min</span></div><p>Zeigen Sie im Blatt „Rechnungen“ in Spalte I mit WENN den Text „überfällig“ an, wenn die Rechnung fällig war, sonst „offen“. Zählen Sie dann mit ZÄHLENWENN, wie viele Rechnungen überfällig sind. Ändern Sie testweise ein Zahlungsziel auf 365 Tage. Was ändert sich?</p>
+<details><summary>Lösung</summary><p>I4: <code>=WENN(D4&lt;$B$12;&quot;überfällig&quot;;&quot;offen&quot;)</code>. Zählung: <code>=ZÄHLENWENN(I4:I9;&quot;überfällig&quot;)</code>. Bei 365 Tagen ist die Rechnung noch offen.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>6 · Projektplan mit Stichtag</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 6 Anspruchsvoll“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Berechnen Sie in Spalte D das Ende jedes Abschnitts (Start plus Dauer).</li>
+<li>Berechnen Sie in Spalte E, wie viele Tage das Ende vom Stichtag entfernt ist (negativ = bereits abgelaufen).</li>
+<li>Zeigen Sie in Spalte F den Status: „abgelaufen“ bei negativem Wert, „läuft bald ab“ bis einschließlich 7 Tage, sonst „im Plan“.</li>
+<li>Ermitteln Sie in Spalte G mit einer 30-Tage-Methode die Laufzeit zwischen Start und Ende in Tagen.</li>
+<li>Zerlegen Sie in Spalte H den Monat des Endes. Zählen Sie in B24 mit ZÄHLENWENN die abgelaufenen Abschnitte.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Ende“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Tage bis Stichtag“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Status“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Laufzeit (30-Tage-Methode)“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Monat des Endes“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Der Stichtag ist fest eingetragen. Ändern Sie ihn auf ein anderes Datum, damit der Status neu berechnet wird.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D21): 16.03.2026; 06.04.2026; 04.05.2026; 23.05.2026; 07.06.2026; 25.06.2026; 03.07.2026; 30.07.2026</li>
+<li>Spalte E (E14 bis E21): -61; -40; -12; 7; 22; 40; 48; 75</li>
+<li>Spalte F (F14 bis F21): „abgelaufen“; „abgelaufen“; „abgelaufen“; „läuft bald ab“; „im Plan“; „im Plan“; „im Plan“; „im Plan“</li>
+<li>Spalte G (G14 bis G21): 14; 20; 28; 19; 11; 17; 8; 24</li>
+<li>Spalte H (H14 bis H21): 3; 4; 5; 5; 6; 6; 7; 7</li>
+<li>Abgelaufene Abschnitte (B24): 3</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=B14+C14</code>. Spalte E (ab E14): <code>=D14-$K$15</code>. Spalte F (ab F14): <code>=WENN(E14&lt;0;&quot;abgelaufen&quot;;WENN(E14&lt;=7;&quot;läuft bald ab&quot;;&quot;im Plan&quot;))</code>. Spalte G (ab G14): <code>=TAGE360(B14;D14)</code>. Spalte H (ab H14): <code>=MONAT(D14)</code>. B24: <code>=ZÄHLENWENN(F14:F21;&quot;abgelaufen&quot;)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>7 · Arbeitszeit mit Pausenregel</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 7 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Berechnen Sie in Spalte D die Brutto-Arbeitszeit (Ende minus Beginn).</li>
+<li>Bestimmen Sie in Spalte E die Pause nach der Regel. Rechnen Sie mit Bruchteilen eines Tages, zum Beispiel 30/1440 für 30 Minuten.</li>
+<li>Berechnen Sie in Spalte F die Netto-Arbeitszeit und in Spalte G die Netto-Arbeitszeit in Dezimalstunden (ganze Stunden plus Minuten geteilt durch 60).</li>
+<li>Berechnen Sie in Spalte H den Lohn des Tages.</li>
+<li>Berechnen Sie in Zeile 19 die Summen der Dezimalstunden und des Lohns. Prüfen Sie den Freitag mit genau 6 Stunden: Hier gibt es noch keine Pause.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Brutto“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Pause“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Netto“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Dezimalstunden“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Lohn“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Am Freitag (genau 6:00 Stunden brutto) wird keine Pause abgezogen.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D18): 08:30; 10:00; 05:30; 08:00; 06:00</li>
+<li>Spalte E (E14 bis E18): 00:30; 00:45; 00:00; 00:30; 00:00</li>
+<li>Spalte F (F14 bis F18): 08:00; 09:15; 05:30; 07:30; 06:00</li>
+<li>Spalte G (G14 bis G18): 8,00; 9,25; 5,50; 7,50; 6,00</li>
+<li>Spalte H (H14 bis H18): 128,00 €; 148,00 €; 88,00 €; 120,00 €; 96,00 €</li>
+<li>Summe Dezimalstunden (G19): 36,25</li>
+<li>Summe Lohn (H19): 580,00 €</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=C14-B14</code>. Spalte E (ab E14): <code>=WENN(D14&gt;9/24;45/1440;WENN(D14&gt;6/24;30/1440;0))</code>. Spalte F (ab F14): <code>=D14-E14</code>. Spalte G (ab G14): <code>=STUNDE(F14)+MINUTE(F14)/60</code>. Spalte H (ab H14): <code>=G14*$K$15</code>. G19: <code>=SUMME(G14:G18)</code>. H19: <code>=SUMME(H14:H18)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>8 · Mein eigener Kalender</h3><span class="lvl time">10 min +</span></div><p>Berechnen Sie in einer neuen Tabelle, wie viele Tage es noch bis zu einem Ihrer nächsten Termine sind, zum Beispiel bis zu den Ferien oder zur Prüfung. Zerlegen Sie auch Ihren Geburtstag in Jahr, Monat und Tag und prüfen Sie, wie alt Sie in Tagen sind (heutiges Datum minus Geburtsdatum). Verwenden Sie nur Ihre eigenen Daten.</p>
+</div><h2>Videos & Hilfe</h2><div class="media" data-ids="ms-heute, ms-tage360"></div>
+<h2>6. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="1"><p class="q">Was zeigt =HEUTE() an?</p><ol><li>Das aktuelle Datum, das sich bei jedem Öffnen der Datei aktualisiert</li><li>Das Datum, an dem die Datei angelegt wurde</li><li>Das Datum, das Sie zuletzt eingegeben haben</li></ol><p class="fb" data-ok="Richtig. HEUTE hat keine Argumente und liefert immer das aktuelle Datum." data-no="HEUTE ist keine feste Zahl. Das Datum ändert sich bei jedem Öffnen oder Neuberechnen der Datei."></p></div><div class="qa" data-right="1"><p class="q">Eine Rechnung vom 02.03.2026 hat 30 Tage Zahlungsziel. Wie berechnen Sie die Fälligkeit?</p><ol><li>Rechnungsdatum plus 30</li><li>Rechnungsdatum mal 30</li><li>TAG(Rechnungsdatum)+30</li></ol><p class="fb" data-ok="Richtig. Ein Datum ist für Excel eine Zahl. Plus 30 bedeutet 30 Tage später." data-no="Datumsangaben sind fortlaufende Zahlen. Wer 30 addiert, landet 30 Tage später. Multiplizieren oder nur den Tag zu nehmen ist falsch."></p></div><div class="qa" data-right="1"><p class="q">Wie viele Verzugstage liefert =TAGE360(Fällig; Zahlungseingang) für den 01.04. bis 20.04.?</p><ol><li>19</li><li>20</li><li>30</li></ol><p class="fb" data-ok="Richtig. TAGE360 rechnet die Tage zwischen zwei Datumsangaben. 20 minus 1 sind 19." data-no="Zwischen dem 1. und dem 20. eines Monats liegen 19 Tage."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

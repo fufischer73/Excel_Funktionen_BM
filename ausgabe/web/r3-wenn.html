@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WENN – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="r3">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Mit der WENN-Funktion eine Bedingung prüfen.</li><li>Je nach Ergebnis Text oder Zahlen ausgeben.</li><li>Vergleichsoperatoren richtig einsetzen und Grenzfälle prüfen.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Bei der BüroComfort GmbH sind Bestellungen über 50,00 € versandkostenfrei. Alle anderen werden mit Versandkosten berechnet. Das soll die Tabelle selbst anzeigen. Dafür gibt es die <strong>WENN-Funktion</strong>: Sie prüft eine Bedingung und gibt je nach Ergebnis das eine oder das andere aus.</p>
+<h2>2. Aufbau der WENN-Funktion</h2>
+<p><code>=WENN(Prüfung; Wert bei WAHR; Wert bei FALSCH)</code></p>
+<p>Ein Beispiel:</p>
+<p><code>=WENN(C4&gt;50;&quot;Versandkostenfrei&quot;;&quot;Versandkosten&quot;)</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Teil</th>
+<th>Bedeutung im Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C4&gt;50</code></td>
+<td><strong>Prüfung:</strong> Ist der Wert in C4 größer als 50?</td>
+</tr>
+<tr>
+<td><code>&quot;Versandkostenfrei&quot;</code></td>
+<td>Wird angezeigt, wenn die Prüfung <strong>stimmt</strong> (WAHR).</td>
+</tr>
+<tr>
+<td><code>&quot;Versandkosten&quot;</code></td>
+<td>Wird angezeigt, wenn die Prüfung <strong>nicht stimmt</strong> (FALSCH).</td>
+</tr>
+</tbody>
+</table></div>
+<p>Die drei Teile werden durch <strong>Semikolon</strong> getrennt. <strong>Text</strong> steht immer in <strong>Anführungszeichen</strong>. Zahlen schreiben Sie ohne Anführungszeichen.</p>
+<div class="box note onlyoffice"><div class="box-title">Zu prüfen</div><p>In der deutschen OnlyOffice-Oberfläche wird als Trenner vermutlich ebenfalls das Semikolon verwendet. Bitte in der Schul-Installation kontrollieren.</p>
+</div><h2>3. Vergleichsoperatoren</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Zeichen</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>gleich</td>
+<td><code>B4=&quot;Ja&quot;</code></td>
+</tr>
+<tr>
+<td><code>&lt;&gt;</code></td>
+<td>ungleich</td>
+<td><code>B4&lt;&gt;&quot;Ja&quot;</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>größer als</td>
+<td><code>C4&gt;50</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>kleiner als</td>
+<td><code>C4&lt;50</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>größer oder gleich</td>
+<td><code>C4&gt;=50</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>kleiner oder gleich</td>
+<td><code>C4&lt;=50</code></td>
+</tr>
+</tbody>
+</table></div>
+<div class="box warn"><div class="box-title">Typischer Fehler: Grenzwerte</div><p>„Über 50 €“ heißt <code>&gt;50</code>. „Ab 50 €“ heißt <code>&gt;=50</code>. Bei genau 50,00 € führt das zu unterschiedlichen Ergebnissen. Prüfen Sie deshalb immer die Werte direkt an der Grenze.</p>
+</div><div class="box warn"><div class="box-title">Weitere Fehlerquellen</div><ul>
+<li>Anführungszeichen bei Text vergessen.</li>
+<li>Semikolon durch Komma ersetzt.</li>
+<li>Klammer nicht geschlossen.</li>
+<li>Formel nicht in die Zeilen darunter kopiert.</li>
+</ul>
+</div><h2>4. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Bestellungen mit Versandprüfung</div><p>Tabellenblatt „Bestellungen“ mit zehn Bestellungen. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 2 Standard“, „Aufgabe 3 Anspruchsvoll“, „Aufgabe 4 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/r3-bestellungen.xlsx" download>r3-bestellungen.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Versandkosten anzeigen</h3><span class="lvl time">20 min</span></div><p>Lösen Sie den Auftrag aus dem Blatt „Aufgabenstellung“. Zeigen Sie in Spalte D für jede Bestellung „Versandkostenfrei“ oder „Versandkosten“ an. Prüfen Sie besonders die Bestellung B-2004 mit genau 50,00 €.</p>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D enthält in jeder Zeile eine WENN-Formel.</li>
+<li>Die Bestellungen B-2002, B-2005, B-2007, B-2008 und B-2009 sind versandkostenfrei.</li>
+<li>B-2004 (50,00 €) ist <strong>nicht</strong> versandkostenfrei.</li>
+<li>Die Begründung in F4 stimmt.</li>
+</ul>
+</div><details><summary>Hilfe 1: Welche Prüfung?</summary><p>Überlegen Sie: Wann soll „Versandkostenfrei“ erscheinen? Wenn der Bestellwert in Spalte C größer als 50 ist.</p>
+</details><details><summary>Hilfe 2: Formelaufbau</summary><p><code>=WENN(C4&gt;50; …; …)</code>. Setzen Sie für die Punkte die beiden Texte in Anführungszeichen ein.</p>
+</details><details><summary>Lösung</summary><p><code>=WENN(C4&gt;50;&quot;Versandkostenfrei&quot;;&quot;Versandkosten&quot;)</code>. Bei 50,00 € lautet das Ergebnis „Versandkosten“, weil 50 nicht größer als 50 ist.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Zusatz zu Aufgabe 1 · Versandkosten in Euro</h3><span class="lvl time">10 min</span></div><p>Zeigen Sie in Spalte E nicht Text, sondern die Versandkosten als Zahl an: 0,00 € bei versandkostenfreien Bestellungen, sonst 4,95 €. Welche Ergebnisse unterscheiden sich von Spalte D, welche nicht?</p>
+</div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Lagerbestand prüfen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 2 Standard“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Zeigen Sie in Spalte D „Nachbestellen“ oder „ausreichend“ an.</li>
+<li>Berechnen Sie in Spalte E die Fehlmenge. Sie ist die Differenz zwischen Mindestbestand und Bestand, wenn nachbestellt werden muss, sonst 0.</li>
+<li>Prüfen Sie die Grenzfälle, bei denen Bestand und Mindestbestand gleich sind.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Hinweis“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Fehlmenge“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Bei Ordner, Heftklammern und Aktenvernichter ist der Bestand gleich dem Mindestbestand. Dort steht „ausreichend“ und die Fehlmenge ist 0.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D23): „ausreichend“; „Nachbestellen“; „ausreichend“; „Nachbestellen“; „ausreichend“; „ausreichend“; „Nachbestellen“; „ausreichend“; „Nachbestellen“; „ausreichend“</li>
+<li>Spalte E (E14 bis E23): 0; 5; 0; 7; 0; 0; 2; 0; 1; 0</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=WENN(B14&lt;C14;&quot;Nachbestellen&quot;;&quot;ausreichend&quot;)</code>. Spalte E (ab E14): <code>=WENN(B14&lt;C14;C14-B14;0)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>3 · Überstunden vergüten</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 3 Anspruchsvoll“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Berechnen Sie in Spalte D die Differenz zwischen Ist- und Sollstunden.</li>
+<li>Zeigen Sie in Spalte E nur die Überstunden an. Bei Minusstunden soll 0 stehen.</li>
+<li>Berechnen Sie in Spalte F die Vergütung. Verwenden Sie dabei einen Bezug auf H15, den Sie so festsetzen, dass er beim Kopieren nicht wandert.</li>
+<li>Zeigen Sie in Spalte G „Zeitausgleich“ an, wenn die Differenz negativ ist, sonst „-“.</li>
+<li>Ändern Sie den Satz in H15 auf 20,00 €. Alle Vergütungen müssen sich ohne weitere Änderung anpassen.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Differenz“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Überstunden“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Vergütung“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Hinweis“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Bei Mitarbeit 2 und 7 (Differenz 0) steht „-“ und die Vergütung ist 0,00 €.</li>
+<li>Mit 20,00 € in H15 ändert sich nur die Spalte F.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D21): 12; 0; 11; -12; 6; 15; 0; 6</li>
+<li>Spalte E (E14 bis E21): 12; 0; 11; 0; 6; 15; 0; 6</li>
+<li>Spalte F (F14 bis F21): 222,00 €; 0,00 €; 203,50 €; 0,00 €; 111,00 €; 277,50 €; 0,00 €; 111,00 €</li>
+<li>Spalte G (G14 bis G21): „-“; „-“; „-“; „Zeitausgleich“; „-“; „-“; „-“; „-“</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=C14-B14</code>. Spalte E (ab E14): <code>=WENN(C14&gt;B14;C14-B14;0)</code>. Spalte F (ab F14): <code>=E14*$H$15</code>. Spalte G (ab G14): <code>=WENN(D14&lt;0;&quot;Zeitausgleich&quot;;&quot;-&quot;)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>4 · Skonto prüfen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 4 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Entscheiden Sie in Spalte D mit „ja“ oder „nein“, ob Skonto abgezogen werden darf.</li>
+<li>Berechnen Sie in Spalte E den Skontobetrag in Euro. Bei „nein“ ist er 0,00 €.</li>
+<li>Berechnen Sie in Spalte F den Zahlbetrag.</li>
+<li>Berechnen Sie in B26 den Betrag, der insgesamt durch Skonto gespart wurde.</li>
+<li>Begründen Sie in B27: Warum darf Rechnung R-7004 (Zahlung nach genau 10 Tagen) abgezogen werden?</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Skonto?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Skonto in €“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Zahlbetrag“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Bei R-7004 und R-7008 (genau 10 Tage) ist Skonto erlaubt, bei R-7005 (11 Tage) nicht.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D21): „ja“; „nein“; „ja“; „ja“; „nein“; „ja“; „nein“; „ja“</li>
+<li>Spalte E (E14 bis E21): 25,00 €; 0,00 €; 64,00 €; 17,29 €; 0,00 €; 41,50 €; 0,00 €; 36,22 €</li>
+<li>Spalte F (F14 bis F21): 1.225,00 €; 478,90 €; 3.136,00 €; 847,21 €; 129,99 €; 2.033,50 €; 56,40 €; 1.774,54 €</li>
+<li>Skonto insgesamt (B26): 184,00 €</li>
+<li>Antwort (B27): Die Frist gilt bis einschließlich 10 Tage. 10 ist nicht größer als 10, deshalb wird mit &lt;= geprüft und Skonto ist erlaubt</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=WENN(C14&lt;=10;&quot;ja&quot;;&quot;nein&quot;)</code>. Spalte E (ab E14): <code>=WENN(C14&lt;=10;B14*$H$15;0)</code>. Spalte F (ab F14): <code>=B14-E14</code>. B26: <code>=SUMME(E14:E21)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>5 · Meine eigene WENN-Idee</h3><span class="lvl time">10 min +</span></div><p>Denken Sie sich eine Regel aus, die in einem Büro nützlich ist. Beispiel: Wenn der Lagerbestand unter dem Mindestbestand liegt, soll „Nachbestellen“ erscheinen. Legen Sie eine kleine Tabelle an und setzen Sie die Regel mit WENN um.</p>
+</div><h2>5. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="1"><p class="q">Wie ist die WENN-Funktion aufgebaut?</p><ol><li>WENN(Prüfung; Wert bei WAHR; Wert bei FALSCH)</li><li>WENN(Wert bei WAHR; Prüfung; Wert bei FALSCH)</li><li>WENN(Wert bei FALSCH; Wert bei WAHR; Prüfung)</li></ol><p class="fb" data-ok="Richtig. Erst wird geprüft, dann folgt das Ergebnis für „stimmt“ und danach das Ergebnis für „stimmt nicht“." data-no="Die Reihenfolge ist immer Prüfung, dann Wert bei WAHR, dann Wert bei FALSCH."></p></div><div class="qa" data-right="1"><p class="q">Versandkostenfrei ist eine Bestellung ab einem Wert von über 50 €. Welche Prüfung stimmt?</p><ol><li>C4&gt;50</li><li>C4&gt;=50</li><li>C4&lt;50</li></ol><p class="fb" data-ok="Richtig. „Über 50“ bedeutet größer als 50. Bei genau 50,00 € fallen noch Versandkosten an." data-no="Bei „über 50“ gehört der Wert 50 selbst nicht dazu. Dafür gibt es den Operator &gt;. Für „ab 50“ würde &gt;= passen."></p></div><div class="qa" data-right="1"><p class="q">Was fehlt in der Formel =WENN(C4&gt;50;Versandkostenfrei;&quot;Versandkosten&quot;)?</p><ol><li>Anführungszeichen um Versandkostenfrei</li><li>Ein Gleichheitszeichen vor C4</li><li>Eine zusätzliche Klammer</li></ol><p class="fb" data-ok="Richtig. Text muss in einer Formel in Anführungszeichen stehen." data-no="Ohne Anführungszeichen hält Excel den Text für einen Namen und meldet einen Fehler."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

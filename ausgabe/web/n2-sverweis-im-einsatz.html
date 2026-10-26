@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVERWEIS im Einsatz – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="n2">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Mit SVERWEIS und FALSCH Kundendaten genau nachschlagen.</li><li>Mit SVERWEIS und WAHR eine Rabattstaffel auslesen.</li><li>Zwei Tabellen nacheinander verknüpfen.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Sie kennen SVERWEIS mit genauer Suche. Jetzt setzen Sie die Funktion für zwei typische Aufgaben im Büro ein:</p>
+<ul>
+<li><strong>Kundendaten holen:</strong> Aus der Kunden-Nr. werden Name, Ort und Kundengruppe nachgeschlagen. Das ist eine <strong>genaue</strong> Suche.</li>
+<li><strong>Rabatt aus einer Staffel holen:</strong> Aus dem Bestellwert wird der passende Rabattsatz ermittelt. Das ist eine <strong>ungefähre</strong> Suche: Der Bestellwert stimmt nie genau mit einer Stufe überein.</li>
+</ul>
+<p>Der Unterschied liegt im letzten Argument: <code>FALSCH</code> für genau, <code>WAHR</code> für ungefähr.</p>
+<h2>2. Genau oder ungefähr?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>FALSCH (genau)</th>
+<th>WAHR (ungefähr)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Für</td>
+<td>Nummern, Namen, Codes</td>
+<td>Staffeln, Stufen, Noten</td>
+</tr>
+<tr>
+<td>Suchwert</td>
+<td>muss in der ersten Spalte vorkommen</td>
+<td>muss nicht vorkommen</td>
+</tr>
+<tr>
+<td>Erste Spalte</td>
+<td>beliebig sortiert</td>
+<td><strong>aufsteigend sortiert</strong></td>
+</tr>
+<tr>
+<td>Ergebnis</td>
+<td>genau der Treffer</td>
+<td>die größte Stufe, die kleiner oder gleich dem Suchwert ist</td>
+</tr>
+</tbody>
+</table></div>
+<p>Beispiel für die Rabattstaffel:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bestellwert ab</th>
+<th>Rabattsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,00 €</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>100,00 €</td>
+<td>5 %</td>
+</tr>
+<tr>
+<td>500,00 €</td>
+<td>10 %</td>
+</tr>
+<tr>
+<td>1.000,00 €</td>
+<td>15 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>=SVERWEIS(C4;Staffel!$A$4:$B$7;2;WAHR)</code>: Bei 450,00 € liefert Excel 5 %, weil die Stufe ab 100,00 € die größte Stufe ist, die nicht über 450,00 € liegt. Bei genau 500,00 € gilt bereits 10 %.</p>
+<div class="box warn"><div class="box-title">Typische Fehler</div><ul>
+<li>Die Staffel beginnt nicht bei 0. Dann gibt es für kleine Werte die Meldung <code>#NV</code>.</li>
+<li>Die Staffel ist nicht aufsteigend sortiert. Das Ergebnis ist dann falsch, ohne dass eine Fehlermeldung erscheint.</li>
+<li>Bei Kundendaten WAHR statt FALSCH verwendet: Bei einem Tippfehler liefert Excel einen falschen Kunden statt einer Fehlermeldung.</li>
+</ul>
+</div><div class="box tip"><div class="box-title">Rabatt und Anzeige</div><p>Ein Rabatt wie 24,9995 € wird in Excel mit zwei Nachkommastellen als 25,00 € angezeigt, rechnet aber intern mit allen Stellen weiter. Wie Sie Beträge richtig auf Cent runden, lernen Sie im Modul <a href="n3-runden.html">N3</a>.</p>
+</div><h2>3. Mehrere Tabellen verbinden</h2>
+<p>Die Ergebnisse eines SVERWEIS können Sie als Suchwert für den nächsten verwenden. Beispiel: Aus der Kunden-Nr. holen Sie die <strong>Kundengruppe</strong>. Mit der Kundengruppe holen Sie aus einer weiteren Tabelle das <strong>Zahlungsziel</strong>.</p>
+<h2>4. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Bestellungen mit Kundendaten</div><p>Tabellenblatt „Bestellungen“ mit zehn Bestellungen sowie die Blätter „Kunden“, „Staffel“ und „Zahlungsziele“. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 2 Standard“, „Aufgabe 3 Anspruchsvoll“, „Aufgabe 4 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/n2-kundendaten.xlsx" download>n2-kundendaten.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Kundendaten und Rabatt holen</h3><span class="lvl time">25 min</span></div><p>Lösen Sie den Auftrag aus dem Blatt „Aufgabenstellung“:</p>
+<ul>
+<li>Kundenname (Spalte D) und Ort (Spalte E)</li>
+<li>Rabattsatz aus der Staffel (Spalte F)</li>
+<li>Rabatt in Euro (Spalte G) und Zahlbetrag (Spalte H)</li>
+<li>Grenzfälle prüfen</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>D und E verwenden SVERWEIS mit FALSCH, F verwendet SVERWEIS mit WAHR.</li>
+<li>Alle Matrizen sind mit Dollarzeichen fixiert.</li>
+<li>B-9001 (99,99 €) erhält 0 %, B-9002 (100,00 €) erhält 5 %.</li>
+<li>B-9003 (499,99 €) erhält 5 %, B-9004 (500,00 €) erhält 10 %.</li>
+<li>B-9005 (999,99 €) erhält 10 %, B-9006 (1.000,00 €) erhält 15 %.</li>
+</ul>
+</div><details><summary>Hilfe 1: Welche Tabelle?</summary><p>Für Name und Ort suchen Sie in der Tabelle im Blatt „Kunden“. Für den Rabattsatz suchen Sie in der Tabelle im Blatt „Staffel“.</p>
+</details><details><summary>Hilfe 2: Welches letzte Argument?</summary><p>Bei Kundennummern muss der Treffer genau sein: <code>FALSCH</code>. Bei der Rabattstaffel suchen Sie die passende Stufe: <code>WAHR</code>.</p>
+</details><details><summary>Lösung</summary><p>D4: <code>=SVERWEIS(B4;Kunden!$A$4:$D$11;2;FALSCH)</code>. E4: <code>=SVERWEIS(B4;Kunden!$A$4:$D$11;3;FALSCH)</code>. F4: <code>=SVERWEIS(C4;Staffel!$A$4:$B$7;2;WAHR)</code>. G4: <code>=C4*F4</code>. H4: <code>=C4-G4</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Zusatz zu Aufgabe 1 · Zahlungsziel über die Kundengruppe</h3><span class="lvl time">12 min</span></div><p>Holen Sie in Spalte I die Kundengruppe des Kunden und in Spalte J das Zahlungsziel in Tagen. Das Zahlungsziel steht im Blatt „Zahlungsziele“ und hängt von der Kundengruppe ab. Welche Kunden bekommen die längste Frist?</p>
+<details><summary>Lösung</summary><p>I4: <code>=SVERWEIS(B4;Kunden!$A$4:$D$11;4;FALSCH)</code>. J4: <code>=SVERWEIS(I4;Zahlungsziele!$A$4:$B$6;2;FALSCH)</code>. Die längste Frist (30 Tage) erhalten die Kunden der Gruppe A.</p>
+</details></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Kundengruppe und Rabatt holen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 2 Standard“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Holen Sie in den Spalten D, E und F Firma, Ort und Kundengruppe aus dem Kundenstamm.</li>
+<li>Holen Sie in Spalte G den Rabattsatz und in Spalte H das Zahlungsziel aus der Gruppentabelle. Das Suchkriterium ist die Gruppe aus Spalte F.</li>
+<li>Berechnen Sie in Spalte I den Rechnungsbetrag nach Abzug des Rabatts.</li>
+<li>Berechnen Sie in B24 die Summe der Rechnungsbeträge und ermitteln Sie in B25 das längste Zahlungsziel.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Firma“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Ort“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Gruppe“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Rabattsatz“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Zahlungsziel (Tage)“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte I („Rechnungsbetrag“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>Kunde K-503 (Gruppe C) erhält keinen Rabatt und 10 Tage Zahlungsziel.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D23): „Demo-Möbel GmbH“; „Muster-Elektro GmbH“; „Beispielbau GmbH“; „Modell-Handel KG“; „Beispiel-Spedition AG“; „Test-Gastro e. K.“; „Muster-Verlag GmbH“; „Probe-Druck OHG“; „Beispielbau GmbH“; „Muster-Elektro GmbH“</li>
+<li>Spalte E (E14 bis E23): „Rendsburg“; „Kiel“; „Rendsburg“; „Flensburg“; „Kiel“; „Eckernförde“; „Rendsburg“; „Büdelsdorf“; „Rendsburg“; „Kiel“</li>
+<li>Spalte F (F14 bis F23): „A“; „B“; „A“; „C“; „A“; „C“; „B“; „B“; „A“; „B“</li>
+<li>Spalte G (G14 bis G23): 10,00 %; 5,00 %; 10,00 %; 0,00 %; 10,00 %; 0,00 %; 5,00 %; 5,00 %; 10,00 %; 5,00 %</li>
+<li>Spalte H (H14 bis H23): 30; 20; 30; 10; 30; 10; 20; 20; 30; 20</li>
+<li>Spalte I (I14 bis I23): 576,00 €; 1.216,47 €; 86,31 €; 310,00 €; 2.025,00 €; 49,90 €; 741,00 €; 1.444,00 €; 387,00 €; 195,13 €</li>
+<li>Summe Rechnungsbeträge (B24): 7.030,81 €</li>
+<li>Längstes Zahlungsziel (B25): 30</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=SVERWEIS(B14;$K$14:$N$21;2;FALSCH)</code>. Spalte E (ab E14): <code>=SVERWEIS(B14;$K$14:$N$21;3;FALSCH)</code>. Spalte F (ab F14): <code>=SVERWEIS(B14;$K$14:$N$21;4;FALSCH)</code>. Spalte G (ab G14): <code>=SVERWEIS(F14;$P$14:$R$16;2;FALSCH)</code>. Spalte H (ab H14): <code>=SVERWEIS(F14;$P$14:$R$16;3;FALSCH)</code>. Spalte I (ab I14): <code>=C14*(1-G14)</code>. B24: <code>=SUMME(I14:I23)</code>. B25: <code>=MAX(H14:H23)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>3 · Rabattstaffel mit ungefährer Suche</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 3 Anspruchsvoll“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Ermitteln Sie in Spalte D den Mengenrabatt mit SVERWEIS und ungefährer Suche (WAHR). Der Warenwert ist das Suchkriterium.</li>
+<li>Holen Sie in Spalte E den Gruppenrabatt mit SVERWEIS und genauer Suche (FALSCH).</li>
+<li>Berechnen Sie in Spalte F den Gesamtrabatt: Summe beider Teile, höchstens der Höchstrabatt aus K19.</li>
+<li>Berechnen Sie in Spalte G den Rabatt in Euro und in Spalte H den Rechnungsbetrag.</li>
+<li>Prüfen Sie die Grenzfälle 499,99 €, 500,00 €, 999,99 € und 1.000,00 €. Begründen Sie in B25, warum die ungefähre Suche eine aufsteigend sortierte Staffel braucht.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte D („Mengenrabatt“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte E („Gruppenrabatt“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Gesamtrabatt“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Rabatt in €“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Rechnungsbetrag“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>500,00 € gehört schon zur Stufe ab 500 €, 499,99 € noch nicht.</li>
+<li>Bei B-8007 (Gruppe A, 3.200 €) ergibt die Summe 10 %, der Höchstrabatt begrenzt auf 8 %.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte D (D14 bis D23): 0,00 %; 0,00 %; 2,00 %; 2,00 %; 4,00 %; 6,00 %; 6,00 %; 0,00 %; 4,00 %; 2,00 %</li>
+<li>Spalte E (E14 bis E23): 4,00 %; 2,00 %; 0,00 %; 4,00 %; 2,00 %; 0,00 %; 4,00 %; 0,00 %; 2,00 %; 4,00 %</li>
+<li>Spalte F (F14 bis F23): 4,00 %; 2,00 %; 2,00 %; 6,00 %; 6,00 %; 6,00 %; 8,00 %; 0,00 %; 6,00 %; 6,00 %</li>
+<li>Spalte G (G14 bis G23): 4,80 €; 10,00 €; 10,00 €; 60,00 €; 60,00 €; 150,00 €; 256,00 €; 0,00 €; 105,00 €; 38,40 €</li>
+<li>Spalte H (H14 bis H23): 115,20 €; 489,99 €; 490,00 €; 939,99 €; 940,00 €; 2.350,00 €; 2.944,00 €; 65,50 €; 1.645,00 €; 601,60 €</li>
+<li>Antwort (B25): Bei ungefährer Suche liefert SVERWEIS den größten Wert, der kleiner oder gleich dem Suchkriterium ist. Das funktioniert nur, wenn die erste Spalte aufsteigend sortiert ist</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte D (ab D14): <code>=SVERWEIS(C14;$J$14:$K$17;2;WAHR)</code>. Spalte E (ab E14): <code>=SVERWEIS(B14;$M$14:$N$16;2;FALSCH)</code>. Spalte F (ab F14): <code>=MIN(D14+E14;$K$19)</code>. Spalte G (ab G14): <code>=C14*F14</code>. Spalte H (ab H14): <code>=C14-G14</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>4 · Versandzonen nach Postleitzahl</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 4 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Ermitteln Sie in Spalte E die Zone mit einer ungefähren Suche (WAHR). Die Postleitzahl ist das Suchkriterium.</li>
+<li>Holen Sie in Spalte F die Versandkosten der Zone mit einer genauen Suche (FALSCH).</li>
+<li>Berechnen Sie in Spalte G die berechneten Versandkosten: 0,00 € bei einem Warenwert ab der Freigrenze, sonst die Kosten aus Spalte F.</li>
+<li>Berechnen Sie in Spalte H die Rechnungssumme.</li>
+<li>Berechnen Sie in B24 die Versandkosten insgesamt und zählen Sie in B25 die Bestellungen in Zone 3.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte E („Zone“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Versandkosten Zone“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Berechnete Versandkosten“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte H („Rechnungssumme“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen. Bezüge, die beim Kopieren nicht wandern sollen, sind mit Dollarzeichen festgesetzt.</li>
+<li>PLZ 25746 liegt in Zone 2, PLZ 24937 in Zone 1.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte E (E14 bis E23): 1; 1; 1; 2; 2; 1; 2; 1; 3; 3</li>
+<li>Spalte F (F14 bis F23): 4,90 €; 4,90 €; 4,90 €; 6,90 €; 6,90 €; 4,90 €; 6,90 €; 4,90 €; 9,90 €; 9,90 €</li>
+<li>Spalte G (G14 bis G23): 0,00 €; 4,90 €; 4,90 €; 0,00 €; 6,90 €; 0,00 €; 6,90 €; 0,00 €; 9,90 €; 0,00 €</li>
+<li>Spalte H (H14 bis H23): 150,00 €; 154,80 €; 94,40 €; 310,00 €; 71,80 €; 1.200,00 €; 51,90 €; 175,00 €; 107,90 €; 210,00 €</li>
+<li>Versandkosten gesamt (B24): 33,50 €</li>
+<li>Bestellungen in Zone 3 (B25): 2</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte E (ab E14): <code>=SVERWEIS(C14;$J$14:$K$18;2;WAHR)</code>. Spalte F (ab F14): <code>=SVERWEIS(E14;$M$14:$N$16;2;FALSCH)</code>. Spalte G (ab G14): <code>=WENN(D14&gt;=$K$20;0;F14)</code>. Spalte H (ab H14): <code>=D14+G14</code>. B24: <code>=SUMME(G14:G23)</code>. B25: <code>=ZÄHLENWENN(E14:E23;3)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>5 · Meine eigene Staffel</h3><span class="lvl time">10 min +</span></div><p>Entwerfen Sie eine Staffel aus dem Alltag, zum Beispiel Noten nach Punkten, Versandkosten nach Gewicht oder Eintrittspreise nach Alter. Bauen Sie sie als Tabelle auf und lesen Sie die Werte mit SVERWEIS und WAHR aus. Prüfen Sie die Grenzwerte.</p>
+</div><h2>Videos & Hilfe</h2><div class="media" data-ids="ms-sverweis"></div>
+<h2>5. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="2"><p class="q">Eine Rabattstaffel beginnt bei 0 € (0 %), 100 € (5 %) und 500 € (10 %). Welchen Satz liefert =SVERWEIS(450;Staffel;2;WAHR)?</p><ol><li>0 %</li><li>5 %</li><li>10 %</li></ol><p class="fb" data-ok="Richtig. Bei WAHR wird die größte Stufe gefunden, die nicht größer ist als der Suchwert. 450 liegt zwischen 100 und 500, also gilt die Stufe ab 100." data-no="Bei WAHR sucht Excel die nächstkleinere Stufe: die größte Zahl der ersten Spalte, die kleiner oder gleich dem Suchwert ist."></p></div><div class="qa" data-right="1"><p class="q">Wann ist FALSCH als letztes Argument von SVERWEIS die richtige Wahl?</p><ol><li>Bei Nummern oder Namen, die genau übereinstimmen müssen, zum Beispiel Kunden-Nr.</li><li>Bei Staffeln mit Stufen</li><li>Immer, wenn der Spaltenindex größer als 2 ist</li></ol><p class="fb" data-ok="Richtig. Nummern und Namen müssen genau gefunden werden. Staffeln mit Stufen suchen Sie dagegen mit WAHR." data-no="FALSCH sucht einen genauen Treffer. Das passt zu Nummern und Namen, aber nicht zu Staffeln."></p></div><div class="qa" data-right="1"><p class="q">Was muss bei der Rabattstaffel in der ersten Spalte gelten, damit SVERWEIS mit WAHR richtig arbeitet?</p><ol><li>Sie muss aufsteigend sortiert sein und beim kleinsten Wert beginnen</li><li>Sie muss absteigend sortiert sein</li><li>Es müssen Text und Zahlen gemischt sein</li></ol><p class="fb" data-ok="Richtig. Bei WAHR muss die erste Spalte sortiert sein. Beginnt die Staffel bei 0, gibt es auch für kleine Werte ein Ergebnis." data-no="Bei WAHR muss die erste Spalte aufsteigend sortiert sein. Sonst liefert Excel ein falsches Ergebnis."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>

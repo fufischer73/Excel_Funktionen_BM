@@ -1,0 +1,67 @@
+# Kursbeschreibung – Excel-Funktionen
+# Aufbau und alle Felder: referenzen/schema.md im Lernpfad-Baukasten
+
+titel: Excel-Funktionen
+kurzname: excel-funktionen
+ueberschrift: Excel-Funktionen – Schritt für Schritt
+untertitel: Sie lernen die wichtigsten Funktionen der Tabellenkalkulation kennen und wenden sie an Aufgaben der BüroComfort GmbH an.
+badges: [Microsoft Excel, OnlyOffice, 4 Stufen · ca. 10 Doppelstunden]
+fusszeile: BBZ Rendsburg-Eckernförde
+anrede: sie
+notizfrage: "Was nehmen Sie mit? Wo setzen Sie diese Funktion in der Schule oder im Ausbildungsbetrieb ein?"
+
+einleitung: |
+  :::notiz 👉 Bevor Sie starten
+  1. Stellen Sie oben ein, ob Sie mit **Microsoft Excel** oder mit **OnlyOffice** arbeiten. Die Funktionen heißen in beiden Programmen gleich. Unterschiede gibt es bei den Menüs.
+  2. Machen Sie den Selbstcheck. Er empfiehlt Ihnen einen Einstieg.
+  3. Jedes Modul besteht aus Erklärung, Aufgaben in drei Niveaus (Basis, Plus, Kreativ) und einem Kurz-Check. **Basis** bearbeiten alle. **Plus** und **Kreativ** sind für alle, die schneller fertig sind.
+  4. Wer eine Stufe schon sicher beherrscht, kann mit dem Einstufungstest direkt zur nächsten Stufe springen.
+  5. Nutzen Sie bei Bedarf die aufklappbaren Hilfen und die Hilfeseiten der Hersteller.
+  :::
+
+varianten:
+  frage: "Ich arbeite mit:"
+  optionen: {excel: Microsoft Excel, onlyoffice: OnlyOffice}
+  beide: true
+
+stufen:
+  - id: rechnen-und-entscheiden
+    name: Rechnen und Entscheiden
+    icon: "🌱"
+    text: Sie addieren, bilden Durchschnitte, finden kleinste und größte Werte und lassen Excel mit WENN, UND und ODER Entscheidungen treffen.
+    module: [r1, r2, r3, r4, r5, r6, rm]
+  - id: zaehlen-und-summieren
+    name: Zählen und Summieren
+    icon: "🚀"
+    text: Sie zählen Einträge und addieren Werte, die eine Bedingung erfüllen.
+    module: [z1, z2, z3, zm]
+  - id: nachschlagen
+    name: Nachschlagen
+    icon: "🏆"
+    text: Sie holen mit SVERWEIS Daten aus Tabellen und arbeiten mit Runden, Rang, Datum und Uhrzeit.
+    module: [n1, n2, n3, n4, n5, nm]
+  - id: pruefungsfit
+    name: Prüfungsfit
+    icon: "🎓"
+    text: Sie kombinieren alle Funktionen in prüfungsnahen Aufgaben.
+    module: [p1, p2, p3, pm]
+
+selbstcheck:
+  fragen:
+    - frage: Was können Sie in Excel oder OnlyOffice schon?
+      antworten:
+        - Ich kann Zellen formatieren, aber noch keine Funktionen anwenden.
+        - Ich nutze SUMME oder MITTELWERT.
+        - Ich nutze WENN, ZÄHLENWENN oder SUMMEWENN.
+        - Ich nutze auch SVERWEIS sicher.
+  empfehlung:
+    - {bis: 1, stufe: rechnen-und-entscheiden, hinweis: Starten Sie mit Modul R1.}
+    - {bis: 2, stufe: zaehlen-und-summieren, hinweis: Machen Sie zuerst den Einstufungstest für Stufe 1. Bei Unsicherheit starten Sie mit Modul R3.}
+    - {stufe: nachschlagen, hinweis: Machen Sie die Einstufungstests für Stufe 1 und 2. Bestehen Sie beide, starten Sie mit Modul N1.}
+
+einstufung: {bestehen: 80}   # Einstufungstests aus den Kurz-Checks der vorigen Stufe
+
+moodle:
+  version: 4                 # Moodle am BBZ läuft auf 4.5; H5P-Kurz-Checks gibt es erst ab Moodle 5
+  freischaltung: einstufung  # Stufe frei nach Meilenstein ODER Einstufungstest
+  reihenfolge: nacheinander

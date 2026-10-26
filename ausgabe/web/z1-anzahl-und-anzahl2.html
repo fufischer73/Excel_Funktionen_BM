@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANZAHL und ANZAHL2 – Excel-Funktionen</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/kurs.css">
+<script src="assets/js/kurs.js"></script>
+<script src="assets/js/medien.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-module="z1">
+<header id="topbar"></header>
+<div class="layout">
+<nav id="sidebar" aria-label="Lernpfad"></nav>
+<main>
+<div class="box warn"><strong>Entwurf</strong> – dieses Modul ist noch nicht von der Lehrkraft freigegeben.</div><div class="box goals"><div class="box-title">🎯 Das können Sie nach diesem Modul</div><ul><li>Zahlen mit ANZAHL und gefüllte Zellen mit ANZAHL2 zählen.</li><li>Den Unterschied der beiden Funktionen erklären.</li><li>Aus beiden Ergebnissen fehlende Angaben in einer Liste erkennen.</li></ul></div><h2>1. Worum geht es?</h2>
+<p>Bei der BüroComfort GmbH wurde das Lager gezählt. Die Inventurliste ist nicht ganz vollständig: Bei manchen Artikeln fehlt der Bestand, bei anderen der Lieferant. Bevor Sie mit der Liste weiterarbeiten, möchten Sie wissen: <strong>Wie viele Artikel sind es? Bei wie vielen fehlt eine Angabe?</strong></p>
+<p>Excel kann Zellen zählen. Dafür gibt es zwei Funktionen.</p>
+<h2>2. Die beiden Zählfunktionen</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Was wird gezählt?</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ANZAHL</code></td>
+<td>Zellen mit <strong>Zahlen</strong> (auch Datumsangaben)</td>
+<td><code>=ANZAHL(C4:C15)</code></td>
+</tr>
+<tr>
+<td><code>ANZAHL2</code></td>
+<td>alle Zellen, die <strong>nicht leer</strong> sind: Zahlen, Text und mehr</td>
+<td><code>=ANZAHL2(A4:A15)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Beide Funktionen sind wie SUMME aufgebaut: Name, Klammer, Bereich, Klammer. Leere Zellen werden von beiden nicht gezählt.</p>
+<div class="box tip"><div class="box-title">Eselsbrücke</div><p><strong>ANZAHL</strong> zählt nur <strong>Zahlen</strong>. <strong>ANZAHL2</strong> zählt <strong>alles</strong>, was irgendwie gefüllt ist. Wer eine Namensliste zählen möchte, braucht deshalb ANZAHL2.</p>
+</div><p>Aus beiden Ergebnissen lässt sich ablesen, wie viele Einträge <strong>keine Zahl</strong> sind. Das ist hilfreich, um Lücken zu finden:</p>
+<p><code>=ANZAHL2(A4:A15)-ANZAHL(C4:C15)</code></p>
+<p>Hier wird die Anzahl aller Artikel (Spalte A) mit der Anzahl der erfassten Zahlen (Spalte C) verglichen.</p>
+<div class="box warn"><div class="box-title">Typische Fehler</div><ul>
+<li>ANZAHL für Text verwenden: Das Ergebnis ist 0 oder zu klein.</li>
+<li>Zellen mit einem <strong>Leerzeichen</strong> sehen leer aus, sind aber gefüllt. ANZAHL2 zählt sie mit.</li>
+<li>Den Bereich falsch wählen, etwa mit der Überschrift. Dann ist das Ergebnis um 1 zu hoch.</li>
+</ul>
+</div><h2>3. Aufgaben</h2>
+<div class="box download"><div class="box-title">📥 Übungsdatei: Inventur Hauptlager</div><p>Tabellenblatt „Inventur“ mit zwölf Artikeln. Das Blatt „Aufgabenstellung“ enthält den Auftrag. Zusätzlich enthält die Datei die Blätter „Aufgabe 2 Standard“, „Aufgabe 3 Transfer“. Die Schwierigkeit steigt von Blatt zu Blatt.</p>
+<p><a class="btn" href="material/z1-inventur.xlsx" download>z1-inventur.xlsx herunterladen</a></p></div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>1 · Inventurliste auswerten</h3><span class="lvl time">15 min</span></div><p>Lösen Sie den Auftrag aus dem Blatt „Aufgabenstellung“:</p>
+<ul>
+<li>Anzahl der Artikel (C18)</li>
+<li>Artikel mit einem Bestand als Zahl (C19)</li>
+<li>Einträge in der Spalte „Bestand“ überhaupt (C20)</li>
+<li>Artikel ohne Bestand als Zahl (C21)</li>
+<li>Artikel mit Lieferant (C22)</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>C18 und C22 verwenden ANZAHL2, C19 verwendet ANZAHL.</li>
+<li>C20 ist um 1 größer als C19. Der Grund: Bei einem Artikel steht „n. v.“.</li>
+<li>C21 ist eine Rechnung mit Zellbezügen und keine eingetippte Zahl.</li>
+<li>Alle Ergebnisse sind Formeln.</li>
+</ul>
+</div><details><summary>Hilfe 1: Zahl oder Text?</summary><p>Fragen Sie sich bei jedem Auftrag: Stehen im Bereich Zahlen, Text oder beides? Für nur Zahlen nehmen Sie ANZAHL. Soll alles gezählt werden, was ausgefüllt ist, nehmen Sie ANZAHL2.</p>
+</details><details><summary>Hilfe 2: Bereiche</summary><p>Die Artikel stehen in A4 bis A15, der Bestand in C4 bis C15 und die Lieferanten in D4 bis D15.</p>
+</details><details><summary>Kontrolle: Erwartete Ergebnisse</summary><p>Es gibt 12 Artikel. 9 haben einen Bestand als Zahl. In der Spalte „Bestand“ stehen 10 Einträge, weil „n. v.“ als Text mitzählt. 3 Artikel haben keinen Bestand als Zahl. 9 Artikel haben einen Lieferanten.</p>
+</details><details><summary>Lösung</summary><p>C18: <code>=ANZAHL2(A4:A15)</code>. C19: <code>=ANZAHL(C4:C15)</code>. C20: <code>=ANZAHL2(C4:C15)</code>. C21: <code>=C18-C19</code>. C22: <code>=ANZAHL2(D4:D15)</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>Zusatz zu Aufgabe 1 · Lücken sichtbar machen</h3><span class="lvl time">10 min</span></div><p>Welche Artikel haben <strong>weder</strong> einen Bestand als Zahl <strong>noch</strong> einen Lieferanten? Ermitteln Sie die Artikel durch Hinsehen und erklären Sie in einem Satz, warum die Funktionen allein diese Frage nicht beantworten. Tippen Sie danach in eine leere Bestandszelle ein Leerzeichen und beobachten Sie C20. Was fällt Ihnen auf?</p>
+</div><div class="box task basis"><div class="task-head"><span class="lvl basis">Basis</span><h3>2 · Kundenkartei prüfen</h3><span class="lvl time">15 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 2 Standard“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Zählen Sie in Spalte F, wie viele Kontaktangaben (Telefon und E-Mail) je Kunde vorhanden sind.</li>
+<li>Zeigen Sie in Spalte G mit „ja“ oder „nein“ an, ob ein Umsatz erfasst ist.</li>
+<li>Ermitteln Sie in den Zellen B25 bis B30 die Anzahl der Kunden, der Kunden mit und ohne Telefon sowie mit und ohne Umsatzangabe.</li>
+<li>Berechnen Sie in B31 den durchschnittlichen Umsatz der Kunden mit Umsatzangabe und in B32 den Wert, der sich ergäbe, wenn die leeren Umsätze als 0 mitgezählt würden.</li>
+<li>Beantworten Sie in B33: Bei wie vielen Kunden sind Telefon und E-Mail vorhanden?</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte F („Kontaktangaben“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Umsatz erfasst?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>B25 + B27 stimmen: Kunden mit Telefon und ohne Telefon ergeben zusammen alle Kunden.</li>
+<li>Der Durchschnitt mit leeren Zellen als 0 ist niedriger als der Durchschnitt der erfassten Umsätze.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte F (F14 bis F23): 2; 1; 1; 2; 0; 2; 1; 2; 1; 2</li>
+<li>Spalte G (G14 bis G23): „ja“; „ja“; „ja“; „nein“; „ja“; „ja“; „nein“; „ja“; „ja“; „ja“</li>
+<li>Kunden insgesamt (B25): 10</li>
+<li>Kunden mit Telefon (B26): 7</li>
+<li>Kunden ohne Telefon (B27): 3</li>
+<li>Kunden mit Umsatzangabe (B28): 8</li>
+<li>Kunden ohne Umsatzangabe (B29): 2</li>
+<li>Durchschnitt der erfassten Umsätze (B31): 8.100,00 €</li>
+<li>Durchschnitt mit leeren Zellen als 0 (B32): 6.480,00 €</li>
+<li>Antwort (B33): 5 Kunden</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte F (ab F14): <code>=ANZAHL2(C14:D14)</code>. Spalte G (ab G14): <code>=WENN(ANZAHL(E14)=1;&quot;ja&quot;;&quot;nein&quot;)</code>. B25: <code>=ANZAHL2(A14:A23)</code>. B26: <code>=ANZAHL2(C14:C23)</code>. B27: <code>=B25-B26</code>. B28: <code>=ANZAHL(E14:E23)</code>. B29: <code>=B25-B28</code>. B31: <code>=MITTELWERT(E14:E23)</code>. B32: <code>=SUMME(E14:E23)/B25</code>.</p>
+</details></div><div class="box task plus"><div class="task-head"><span class="lvl plus">Plus</span><h3>3 · Kundenumfrage auswerten</h3><span class="lvl time">20 min</span></div><p>Öffnen Sie das Blatt „Aufgabe 3 Transfer“ und lösen Sie die Aufträge:</p>
+<ul>
+<li>Berechnen Sie je Teilnehmer in Spalte E die Anzahl der Noten (nur Zahlen) und in Spalte F die Anzahl der Einträge (auch Text).</li>
+<li>Zeigen Sie in Spalte G mit „ja“ oder „nein“ an, ob alle drei Fragen mit einer Note beantwortet wurden.</li>
+<li>Ermitteln Sie in den Zeilen 30 bis 34 für jede Frage die Anzahl der Noten, die Anzahl der Einträge, die Rücklaufquote (Noten im Verhältnis zur Teilnehmerzahl) und die Durchschnittsnote.</li>
+<li>Beantworten Sie in B36 und B37 die Fragen unter der Tabelle.</li>
+<li>Formatieren Sie Ihre Ergebnisse nach dem Corporate Design.</li>
+</ul>
+<div class="checkliste"><div class="check-title">Selbstcheck</div><ul class="check">
+<li>Spalte E („Noten“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte F („Einträge“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Spalte G („Vollständig?“) enthält in jeder Zeile eine Formel und keine eingetippten Werte.</li>
+<li>Alle Ergebnisse sind Formeln mit Zellbezügen.</li>
+<li>Bei T-02 (Lieferung „k. A.“) ist die Zahl der Einträge größer als die Zahl der Noten.</li>
+<li>T-05 hat keinen Eintrag: Noten 0, Einträge 0.</li>
+</ul>
+</div><details><summary>Kontrolle: Erwartete Ergebnisse</summary><ul>
+<li>Spalte E (E14 bis E27): 3; 2; 2; 3; 0; 3; 2; 2; 3; 3; 3; 1; 3; 3</li>
+<li>Spalte F (F14 bis F27): 3; 3; 2; 3; 0; 3; 3; 2; 3; 3; 3; 1; 3; 3</li>
+<li>Spalte G (G14 bis G27): „ja“; „nein“; „nein“; „ja“; „nein“; „ja“; „nein“; „nein“; „ja“; „ja“; „ja“; „nein“; „ja“; „ja“</li>
+<li>Teilnehmer (B29): 14</li>
+<li>Noten Service (B30): 12</li>
+<li>Noten Lieferung (C30): 11</li>
+<li>Noten Preis (D30): 10</li>
+<li>Einträge Service (B31): 12</li>
+<li>Einträge Lieferung (C31): 12</li>
+<li>Einträge Preis (D31): 11</li>
+<li>Rücklaufquote Service (B32): 85,71 %</li>
+<li>Rücklaufquote Lieferung (C32): 78,57 %</li>
+<li>Rücklaufquote Preis (D32): 71,43 %</li>
+<li>Durchschnittsnote Service (B33): 2,33</li>
+<li>Durchschnittsnote Lieferung (C33): 2,18</li>
+<li>Durchschnittsnote Preis (D33): 2,30</li>
+<li>Antwort (B36): 8 Teilnehmer</li>
+<li>Antwort (B37): ANZAHL2 zählt auch den Text „k. A.“, ANZAHL zählt nur Zahlen</li>
+</ul>
+</details><details><summary>Lösung</summary><p>Spalte E (ab E14): <code>=ANZAHL(B14:D14)</code>. Spalte F (ab F14): <code>=ANZAHL2(B14:D14)</code>. Spalte G (ab G14): <code>=WENN(E14=3;&quot;ja&quot;;&quot;nein&quot;)</code>. B29: <code>=ANZAHL2(A14:A27)</code>. B30: <code>=ANZAHL(B14:B27)</code>. C30: <code>=ANZAHL(C14:C27)</code>. D30: <code>=ANZAHL(D14:D27)</code>. B31: <code>=ANZAHL2(B14:B27)</code>. C31: <code>=ANZAHL2(C14:C27)</code>. D31: <code>=ANZAHL2(D14:D27)</code>. B32: <code>=B30/$B$29</code>. C32: <code>=C30/$B$29</code>. D32: <code>=D30/$B$29</code>. B33: <code>=MITTELWERT(B14:B27)</code>. C33: <code>=MITTELWERT(C14:C27)</code>. D33: <code>=MITTELWERT(D14:D27)</code>.</p>
+</details></div><div class="box task kreativ"><div class="task-head"><span class="lvl kreativ">Kreativ</span><h3>4 · Meine eigene Liste</h3><span class="lvl time">10 min +</span></div><p>Legen Sie eine Liste mit mindestens zehn Einträgen an, zum Beispiel eine Übersicht Ihrer Unterrichtsfächer mit Noten oder eine Einkaufsliste mit Preisen. Lassen Sie einige Zellen leer. Bestimmen Sie mit ANZAHL und ANZAHL2, wie viele Einträge vollständig sind. Verwenden Sie keine personenbezogenen Daten anderer Personen.</p>
+</div><h2>Videos & Hilfe</h2><div class="media" data-ids="ms-anzahl2"></div>
+<h2>4. Kurz-Check</h2>
+<div class="box quiz"><div class="box-title">🧠 Kurz-Check</div><div class="qa" data-right="1"><p class="q">In einer Spalte stehen drei Zahlen, zwei Wörter und eine leere Zelle. Welche Ergebnisse liefern ANZAHL und ANZAHL2?</p><ol><li>ANZAHL = 3, ANZAHL2 = 5</li><li>ANZAHL = 5, ANZAHL2 = 3</li><li>ANZAHL = 3, ANZAHL2 = 6</li></ol><p class="fb" data-ok="Richtig. ANZAHL zählt nur die drei Zahlen. ANZAHL2 zählt alle Zellen mit einem Eintrag, also Zahlen und Wörter. Die leere Zelle zählt nie." data-no="ANZAHL zählt nur Zahlen. ANZAHL2 zählt alle Zellen, in denen etwas steht. Leere Zellen zählt keine der beiden Funktionen."></p></div><div class="qa" data-right="2"><p class="q">Sie möchten wissen, wie viele Kunden in einer Namensliste stehen. Welche Funktion passt?</p><ol><li>ANZAHL</li><li>ANZAHL2</li><li>SUMME</li></ol><p class="fb" data-ok="Richtig. Namen sind Text. ANZAHL würde sie nicht zählen." data-no="Namen sind Text und keine Zahlen. Gesucht ist die Funktion, die alle gefüllten Zellen zählt."></p></div><div class="qa" data-right="2"><p class="q">Eine Spalte „Bestand“ enthält bei einem Artikel den Text „n. v.“. Wie wirkt sich das auf =ANZAHL(C4:C15) aus?</p><ol><li>Die Zelle wird mitgezählt</li><li>Die Zelle wird nicht mitgezählt</li><li>Die Formel zeigt einen Fehler</li></ol><p class="fb" data-ok="Richtig. „n. v.“ ist Text. ANZAHL zählt nur Zahlen." data-no="ANZAHL überspringt Text. Ein Fehler entsteht dadurch nicht."></p></div></div>
+
+</main>
+</div>
+<footer class="site">BBZ Rendsburg-Eckernförde</footer>
+</body>
+</html>
