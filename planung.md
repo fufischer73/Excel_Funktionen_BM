@@ -42,6 +42,11 @@ Reihenfolge ist ein Vorschlag. Aufwand: S = klein, M = mittel, L = groß.
 | 10 | **Auslieferung** | Web-Build mit dem Baukasten, Moodle-Paket (SCORM), Hosting bei privatem Repo klären, Datenschutz mit der Schule abstimmen | M |
 | 11 | **Qualitätssicherung** | alle Dateien in Excel öffnen und Ergebnisse prüfen, 6 Quellen auf `zu_pruefen`, Quellen und Medien für neue Module, Kurz-Checks und Einstufungstests nachziehen, Zeitbilanz und Badge „ca. 10 Doppelstunden“ anpassen, Freigabe durch Jan | M |
 | 12 | **12-Wochen-Plan** | Wochenplan mit Unterricht und Zuhause-Lernen, passend zu Kann-Liste und Prüfungstermin | S bis M |
+| 13 | **Modellunternehmen BüroComfort GmbH** | Steckbrief und gemeinsame Stammdaten (Filialen, Warengruppen, Artikel, Kunden, Lieferanten, Regeln wie Skonto und Versand) als Datenquelle für alle Generatoren | M |
+| 14 | **Selbstkontrolle** | Kontrollzellen und Gegenproben in allen Dateien; später Browser-Seite zum Prüfen der Schülerdatei (lokal) | M bis L |
+| 15 | **Prozentrechnung** (Teil von Paket 6) | Anteil von, Prozentwert und Grundwert, Veränderung in Prozent, Aufschlag und Abzug; typische Fehler beim Prozentformat | M |
+| 16 | **Prüfungsvorbereitung** | Modul „Die Prüfung steht an“: Material, Ablauf, Zeitplan, Datei- und Abgaberegeln, Checkliste; Diagramm-Prüfliste von Jan | S bis M |
+| 17 | **Formatvorgabe im Auftrag** | Zahlenformat im Auftrag ausdrücklich nennen (Standard: Zahl), Prozentformat nur gelegentlich; Corporate-Design-Blatt anpassen | S |
 
 ## 4. Offene Entscheidungen (Jan)
 
@@ -50,13 +55,23 @@ Reihenfolge ist ein Vorschlag. Aufwand: S = klein, M = mittel, L = groß.
 3. Auslieferung: Moodle (Empfehlung bei privatem Repo und Zuhause-Lernen) oder Web?
 4. Gemeinsames Blatt „Corporate Design und Abgabe“ oder zwei getrennte Blätter?
 5. Welche Prüfungsdateien zuerst (Vorschlag: Lager und Kunden)?
+6. Formatvorgabe: Soll jeder Auftrag das Format ausdrücklich nennen („Format: Zahl, 0 Nachkommastellen“), oder gilt eine feste Regel im Blatt „Corporate Design und Abgabe“?
+7. Prüfungsablauf: Was ist erlaubt (Stift, Lineal, Papier, Taschenrechner), wie lang dauert der Excel-Teil, wird gedruckt?
+8. Womit arbeiten die Lernenden zu Hause (Excel-Lizenz, Excel im Browser, anderes)?
 
 ## 5. Ideensammlung
 
 Hier sammeln wir Ideen, ohne sie sofort umzusetzen. Jede Idee bekommt später eine Nummer in der Tabelle oben oder wird gestrichen.
 
 **Von Jan:**
-- (offen, bitte ergänzen)
+- Modellunternehmen hinterlegen (einheitliche Stammdaten für alle Dateien).
+- Prüfungsaufgaben als Beispiele für die weitere Gestaltung, **nicht 1:1**.
+- Prozentrechnung besonders betrachten: Anteil von (Prozentwert, Grundwert, Prozentsatz), Veränderung in Prozent.
+- Im Auftrag als Standardformat **Zahl** nennen, das Prozentformat nur gelegentlich.
+- Selbstlernen: Wie können Lernende sich kontrollieren, ohne dass die Lehrkraft alles durchsehen muss?
+- Diagramme erstellen: Prüfliste, wie sie Jan in Prüfungen vorschlägt (Jan liefert die Liste).
+- Vorgehen, wenn die Prüfung bevorsteht: Material (Stift, Lineal …), Ablauf, Zeitplan.
+- Was fällt Claude ein? (siehe unten)
 
 **Vorschläge von Claude:**
 - Formelsammlung/Spickzettel zum Ausdrucken (Funktionen, Tastenkürzel wie F4 und Strg+1, typische Fehlermeldungen `#NV`, `#BEZUG!`, `#WERT!`).
@@ -67,6 +82,14 @@ Hier sammeln wir Ideen, ohne sie sofort umzusetzen. Jede Idee bekommt später ei
 - Kann-Liste: Empfehlung des nächsten Moduls, Lernplan als PDF, Wochenziele.
 - Kurze Erklärvideos zu den Funktionen (Links in `medien.yaml`).
 - Lösungswege in Varianten für Excel und ONLYOFFICE.
+- **Selbstkontrolle im Browser:** Lernende ziehen ihre Excel-Datei auf eine Seite. Die Seite vergleicht Formeln und Werte mit der Lösung und zeigt je Aufgabe ✓ oder ✗. Alles läuft lokal im Browser, es werden keine Daten gesendet.
+- **Kontrollzellen in den Dateien:** Je Blatt ein kleiner Block „Kontrolle“ mit einer Gegenprobe (zum Beispiel Summe der Teile = Gesamtsumme) und einer Ampelzelle ✓/✗.
+- **Fehlerkatalog „Meine häufigsten Fehler“:** Lernende tragen nach jeder Aufgabe die Fehlerart ein (Klammer, Bezug, Format …). So sehen sie ihr Muster.
+- **Aufgabenvarianten:** Dieselbe Aufgabe mit anderen Zahlen je Lernender (zufällig, nachprüfbar), gegen Abschreiben.
+- **Prüfungssimulation:** Aufgaben mit Zeitvorgabe, Punkten und Abgabe wie in der Prüfung.
+- **Formelprotokoll:** Lernende beschreiben die Formel in einem Satz (Regel als Satz). Das fördert das Verstehen statt Auswendiglernen.
+- **Zugang zu Hause:** Klären, womit die Lernenden zu Hause arbeiten (Schullizenz, Excel im Browser, ONLYOFFICE).
+- **Mikroschritte für Schwächere:** Zusätzliche Kleinstaufgaben und kurze Videos vor dem Modul.
 
 ## 6. So arbeiten wir weiter
 
