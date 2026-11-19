@@ -28,8 +28,8 @@ stufen:
   - id: rechnen-und-entscheiden
     name: Rechnen und Entscheiden
     icon: "🌱"
-    text: Sie addieren, bilden Durchschnitte, finden kleinste und größte Werte und lassen Excel mit WENN, UND und ODER Entscheidungen treffen.
-    module: [r1, r2, r3, r4, r5, r6, rm]
+    text: Sie bauen Formeln auf und kopieren sie, setzen Bezüge fest, addieren, bilden Durchschnitte, finden kleinste und größte Werte und lassen Excel mit WENN, UND und ODER Entscheidungen treffen.
+    module: [g1, r1, r2, g2, r3, r4, r5, r6, rm]
   - id: zaehlen-und-summieren
     name: Zählen und Summieren
     icon: "🚀"
@@ -55,7 +55,7 @@ selbstcheck:
         - Ich nutze WENN, ZÄHLENWENN oder SUMMEWENN.
         - Ich nutze auch SVERWEIS sicher.
   empfehlung:
-    - {bis: 1, stufe: rechnen-und-entscheiden, hinweis: Starten Sie mit Modul R1.}
+    - {bis: 1, stufe: rechnen-und-entscheiden, hinweis: Starten Sie mit Modul G1 (Formeln und Kopieren).}
     - {bis: 2, stufe: zaehlen-und-summieren, hinweis: Machen Sie zuerst den Einstufungstest für Stufe 1. Bei Unsicherheit starten Sie mit Modul R3.}
     - {stufe: nachschlagen, hinweis: Machen Sie die Einstufungstests für Stufe 1 und 2. Bestehen Sie beide, starten Sie mit Modul N1.}
 
