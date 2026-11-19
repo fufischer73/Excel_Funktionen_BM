@@ -3,6 +3,26 @@
 Stand: 19.11.2026 · Ziel: Prüfung in ca. 12 Wochen, Lernen auch zu Hause · Software: Microsoft Excel (ONLYOFFICE nur Nebenvariante)
 Arbeitsbranch: `claude/tender-rubin-foxelr`. Hinweise zu Werkzeugen und Aufbau: `uebergabe.md`, `werkzeuge/README.md`.
 
+## 0. Wo wir stehen und was als Nächstes kommt (Stand 19.11.2026)
+
+**Nächster Schritt: Stufe 2 im neuen Aufbau (Paket 1).** Z1 bis Z3 und ZM bekommen:
+- Startblatt, Auftrag oben auf jedem Blatt, Blatt „Corporate Design und Abgabe“ (Funktionen aus `werkzeuge/dateiaufbau.py`, Vorbild: `werkzeuge/gen_stufe1_neu.py`),
+- Daten und Namen aus `modellunternehmen/stammdaten.yaml` (über `werkzeuge/unternehmen.py`),
+- die Eurobetrag-Vorgabe abwechselnd (`euro="zwei"` und `euro="tausender"`), im Auftrag genannt,
+- **neue Aufgaben mit Blattbezügen**: ANZAHL, ANZAHL2, ZÄHLENWENN, SUMMEWENN mit Daten auf einem Blatt und Auswertung auf einem anderen,
+- Höchstens zwei WENN, steigende Komplexität nach Adressierung (K1 bis K7).
+Danach Stufe 3 und 4, dann die weiteren Pakete in Abschnitt 3.
+
+**Fertig und gepusht (Branch `claude/tender-rubin-foxelr`):** G1 und G2, R4/RM/R6/N4/P3 auf höchstens zwei WENN, Stufe 1 im neuen Aufbau mit Startblatt wie Prüfungsseite, Modellunternehmen (Stammdaten, Steckbrief, Abweichungsliste, Prüf- und Tauschwerkzeug), Kann-Liste-Prototyp.
+
+**Noch offene Entscheidungen von Jan:** Abschnitt 4 (Prüfungsdaten eigene oder 1:1, Reihenfolge, Moodle oder Web, Formatvorgabe, Prüfungsablauf, Zugang zu Hause, Rechte am Buchunternehmen).
+
+**Wichtig für jede Sitzung:**
+- Prüfungsmaterial der Kammer (Dateien, Aufgabenseiten) nur als Muster für Aufbau und Spalten, nichts 1:1, nichts davon ins Repo.
+- Alle Dateien sind nur mit LibreOffice berechnet und noch **nicht in Excel** geprüft.
+- Zahlenformat im Auftrag nennen. Euro: je nach Aufgabe zwei Dezimalstellen oder 1000er-Trennzeichen ohne Dezimalstellen.
+- Web-Build und Moodle-Paket entstehen im Baukasten (nicht in diesem Repo). Seitennamen der neuen Module sind vermutet.
+
 ## 1. Beschlossene Regeln
 
 - Höchstens **zwei WENN** ineinander (drei Ergebnisse). Längere Staffeln über SVERWEIS (Stufe 3).
