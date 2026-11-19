@@ -171,7 +171,7 @@ P3_RECH = [("R-2026-0401", "K-4101", date(2026, 2, 16), 30, 1250.00), ("R-2026-0
 P3_TEL = [(1, "R-2026-0401", time(9, 5), time(9, 12)), (2, "R-2026-0402", time(9, 40), time(9, 58)), (3, "R-2026-0404", time(10, 15), time(10, 21)),
           (4, "R-2026-0409", time(11, 2), time(11, 37)), (5, "R-2026-0403", time(13, 30), time(13, 44)), (6, "R-2026-0405", time(14, 5), time(14, 9)),
           (7, "R-2026-0412", time(15, 20), time(15, 52)), (8, "R-2026-0407", time(16, 10), time(16, 25))]
-STATI = ["offen", "Zahlungserinnerung", "1. Mahnung", "2. Mahnung"]
+STATI = ["offen", "Zahlungserinnerung", "Mahnung"]
 
 
 def p3(loesung):
@@ -181,18 +181,18 @@ def p3(loesung):
         "Sie arbeiten in der Abteilung Verwaltung der BüroComfort GmbH, Buntstraße 11, 24768 Rendsburg. "
         "Für das Mahnwesen soll zum Stichtag (Zelle B3) geprüft werden, welche Rechnungen überfällig sind. "
         "Regeln: Eine Rechnung ist ab dem Tag nach dem Fälligkeitsdatum überfällig. Bis 14 Tage Überfälligkeit erhält der Kunde eine „Zahlungserinnerung“, "
-        "von 15 bis 30 Tagen eine „1. Mahnung“, ab 31 Tagen eine „2. Mahnung“. Rechnungen, die nicht überfällig sind, erhalten den Status „offen“. "
+        "ab 15 Tagen eine „Mahnung“. Rechnungen, die nicht überfällig sind, erhalten den Status „offen“. "
         "Für überfällige Rechnungen werden Verzugszinsen berechnet. Der Zinssatz steht in Zelle B4. Zinstage werden zwischen Fälligkeit und Stichtag mit 30-Tage-Monaten (360-Tage-Jahr) gezählt. "
         "Außerdem wurden Telefonate zu offenen Rechnungen geführt (Blatt „Telefonate“).",
         ["Berechnen Sie für jede Rechnung das Fälligkeitsdatum (F7 bis F18) und die Tage, die die Rechnung zum Stichtag überfällig ist (G7 bis G18). Ist die Rechnung nicht überfällig, soll 0 stehen. (12 Punkte)",
          "Ermitteln Sie für jede Rechnung den Status (H7 bis H18). (9 Punkte)",
          "Berechnen Sie für jede Rechnung die Verzugstage mit einer Funktion für 30-Tage-Monate (I7 bis I18) und die Verzugszinsen (J7 bis J18), auf Cent gerundet. Bei nicht überfälligen Rechnungen soll 0 stehen. (10 Punkte)",
-         "Erstellen Sie die Auswertung (Zellen C21 bis C27): Anzahl der Rechnungen je Status, Summe der überfälligen Rechnungsbeträge, Summe der Verzugszinsen und größte Überfälligkeit in Tagen. (10 Punkte)",
+         "Erstellen Sie die Auswertung (Zellen C21 bis C26): Anzahl der Rechnungen je Status, Summe der überfälligen Rechnungsbeträge, Summe der Verzugszinsen und größte Überfälligkeit in Tagen. (10 Punkte)",
          "Blatt „Telefonate“: Berechnen Sie die Dauer jedes Telefonats in Minuten (Spalte E) sowie die Gesamtdauer in Minuten, die durchschnittliche Dauer und die längste Dauer (E13 bis E15). (6 Punkte)",
          "Formatieren Sie die Blätter nach dem Corporate Design der BüroComfort GmbH und ergänzen Sie die Fußzeile. Datumsangaben im Format TT.MM.JJJJ, Uhrzeiten im Format hh:mm. (6 Punkte)"],
         "Insgesamt 53 Punkte. Achten Sie auf die Grenzwerte: Eine Rechnung, die am Stichtag fällig wird, ist noch nicht überfällig. " + BASIS,
-        "Lösung: F7 =C7+D7; G7 =WENN($B$3>F7;$B$3-F7;0); H7 =WENN(G7=0;\"offen\";WENN(G7<=14;\"Zahlungserinnerung\";WENN(G7<=30;\"1. Mahnung\";\"2. Mahnung\"))); "
-        "I7 =WENN(G7>0;TAGE360(F7;$B$3);0); J7 =RUNDEN(E7*$B$4*I7/360;2); Auswertung C21..C24 =ZÄHLENWENN($H$7:$H$18;B21); C25 =SUMMEWENN(G7:G18;\">0\";E7:E18); C26 =SUMME(J7:J18); C27 =MAX(G7:G18). "
+        "Lösung: F7 =C7+D7; G7 =WENN($B$3>F7;$B$3-F7;0); H7 =WENN(G7=0;\"offen\";WENN(G7<=14;\"Zahlungserinnerung\";\"Mahnung\")); "
+        "I7 =WENN(G7>0;TAGE360(F7;$B$3);0); J7 =RUNDEN(E7*$B$4*I7/360;2); Auswertung C21..C23 =ZÄHLENWENN($H$7:$H$18;B21); C24 =SUMMEWENN(G7:G18;\">0\";E7:E18); C25 =SUMME(J7:J18); C26 =MAX(G7:G18). "
         "Telefonate: E4 =STUNDE(D4-C4)*60+MINUTE(D4-C4); E13 =SUMME(E4:E11); E14 =MITTELWERT(E4:E11); E15 =MAX(E4:E11). "
         "Punkte: Fälligkeit/Überfälligkeit 12, Status 9, Zinsen 10, Auswertung 10, Telefonate 6, Gestaltung 6.", loesung)
     ws = wb.create_sheet("Offene Posten")
@@ -205,7 +205,7 @@ def p3(loesung):
     for r in range(7, 19):
         ziel(ws, f"F{r}", f"=C{r}+D{r}", DATUM, loesung)
         ziel(ws, f"G{r}", f"=IF($B$3>F{r},$B$3-F{r},0)", ZAHL, loesung)
-        ziel(ws, f"H{r}", f'=IF(G{r}=0,"offen",IF(G{r}<=14,"Zahlungserinnerung",IF(G{r}<=30,"1. Mahnung","2. Mahnung")))', None, loesung)
+        ziel(ws, f"H{r}", f'=IF(G{r}=0,"offen",IF(G{r}<=14,"Zahlungserinnerung","Mahnung"))', None, loesung)
         ziel(ws, f"I{r}", f"=IF(G{r}>0,DAYS360(F{r},$B$3),0)", ZAHL, loesung)
         ziel(ws, f"J{r}", f"=ROUND(E{r}*$B$4*I{r}/360,2)", EURO, loesung)
     tabelle_kopf(ws, 20, ["Auswertung", "Status", "Wert"], 1)
@@ -215,11 +215,11 @@ def p3(loesung):
         beschriftung(ws, f"A{r}", "Anzahl Rechnungen")
         beschriftung(ws, f"B{r}", s)
         ziel(ws, f"C{r}", f"=COUNTIF($H$7:$H$18,B{r})", ZAHL, loesung)
-    for r, a, b in ((25, "Summe", "überfällige Rechnungsbeträge"), (26, "Summe", "Verzugszinsen"), (27, "Größte Überfälligkeit", "in Tagen")):
+    for r, a, b in ((24, "Summe", "überfällige Rechnungsbeträge"), (25, "Summe", "Verzugszinsen"), (26, "Größte Überfälligkeit", "in Tagen")):
         beschriftung(ws, f"A{r}", a); beschriftung(ws, f"B{r}", b)
-    ziel(ws, "C25", '=SUMIF(G7:G18,">0",E7:E18)', EURO, loesung)
-    ziel(ws, "C26", "=SUM(J7:J18)", EURO, loesung)
-    ziel(ws, "C27", "=MAX(G7:G18)", ZAHL, loesung)
+    ziel(ws, "C24", '=SUMIF(G7:G18,">0",E7:E18)', EURO, loesung)
+    ziel(ws, "C25", "=SUM(J7:J18)", EURO, loesung)
+    ziel(ws, "C26", "=MAX(G7:G18)", ZAHL, loesung)
     breiten(ws, {"A": 20, "B": 28, "C": 16, "D": 20, "E": 14, "F": 14, "G": 16, "H": 20, "I": 14, "J": 16})
     fuss(ws, loesung)
     t = wb.create_sheet("Telefonate")

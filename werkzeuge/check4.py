@@ -35,7 +35,7 @@ from datetime import timedelta
 st3=g.P3_STICHTAG
 for (rn,k,d,z,b),r in zip(g.P3_RECH,range(7,19)):
     f=d+timedelta(days=z); t=max((st3-f).days,0)
-    s="offen" if t==0 else "Zahlungserinnerung" if t<=14 else "1. Mahnung" if t<=30 else "2. Mahnung"
+    s="offen" if t==0 else "Zahlungserinnerung" if t<=14 else "Mahnung"
     v=(st3.year-f.year)*360+(st3.month-f.month)*30+(min(st3.day,30)-min(f.day,30)) if t>0 else 0
     z_=r2(D(str(b))*D("0.05")*v/360)
     got=[ws.cell(row=r,column=c).value for c in (6,7,8,9,10)]
