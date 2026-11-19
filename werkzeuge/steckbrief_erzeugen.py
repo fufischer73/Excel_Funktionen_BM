@@ -34,10 +34,18 @@ z.append(f"- **Skonto:** {pct(r['skonto']['satz'])} bei Zahlung innerhalb von {r
 z.append("- **Mengenrabatt (einfach, höchstens zwei WENN):** " + "; ".join(f"ab {euro(x['ab'])}: {pct(x['satz'])}" for x in r["mengenrabatt_einfach"]))
 z.append("- **Mengenrabatt (Staffel, ab Stufe 3 mit SVERWEIS):** " + "; ".join(f"ab {euro(x['ab'])}: {pct(x['satz'])}" for x in r["mengenrabatt_staffel"]))
 z.append(f"- **Verzugszinsen:** {pct(r['zinssatz_verzug'])} pro Jahr (Zinstage nach der 360-Tage-Methode)\n")
-cd = U.D["corporate_design"]
-z.append("## Corporate Design\n")
-z.append(f"Schrift {cd['schrift']} {cd['schriftgroesse']}; Überschriften {cd['ueberschrift']['ausrichtung']}, {cd['ueberschrift']['groesse']}, fett; "
-         f"Prozent mit {cd['prozent_nachkommastellen']} Nachkommastellen; andere Zahlen mit {cd['zahl_nachkommastellen']}; Euro mit Tausenderpunkt und zwei Nachkommastellen; Datum {cd['datum']}; Uhrzeit {cd['uhrzeit']}.\n")
+cd = U.CD
+km = U.KOMM
+z.append("## Betriebsangaben (für Briefe und E-Mails)\n")
+z.append("- **Durchwahlen:** " + ", ".join(f"{k} {v}" for k, v in km["durchwahl"].items()))
+z.append(f"- **E-Mail-Adressen:** {km['email_schema']}")
+z.append(f"- **Unser Zeichen:** {km['unser_zeichen']}; **Vollmacht:** {km['vollmacht']}\n")
+z.append("## Corporate Design (Tabellenkalkulation)\n")
+z.append(f"- Schriftart {cd['schrift']}, Schriftgröße {cd['schriftgroesse']}")
+z.append(f"- Überschriften {cd['ueberschrift']['ausrichtung']}, Schriftgröße {cd['ueberschrift']['groesse']}, Fettschrift")
+z.append(f"- Diagramm mit {cd['diagramm']['schrift']}; Diagrammtitel in Schriftgröße {cd['diagramm']['titel_groesse']}")
+z.append(f"- Format Zahl: Prozentsätze mit {cd['prozent_nachkommastellen']} Dezimalstellen; andere Zahlen ohne Dezimalstellen; Eurobeträge je nach Aufgabe mit zwei Dezimalstellen oder mit 1000er-Trennzeichen ohne Dezimalstellen")
+z.append(f"- Datum {cd['datum']}, Uhrzeit {cd['uhrzeit']}\n")
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "modellunternehmen", "steckbrief.md")
 open(out, "w", encoding="utf-8").write("\n".join(z))
 print("geschrieben:", os.path.normpath(out))

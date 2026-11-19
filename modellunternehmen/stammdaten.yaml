@@ -98,13 +98,26 @@ regeln:
   zinssatz_verzug: 0.05
   stichtag_beispiel: 2026-06-15
 
+# Betriebsangaben, wie sie auf Prüfungsseiten vorkommen (für Excel nur am Rand wichtig, für Word-Aufgaben später)
+kommunikation:
+  durchwahl: {Verwaltung: "120", Einkauf: "140", Verkauf: "160", Lager: "180", Buchhaltung: "130"}
+  email_schema: vorname.nachname@buerocomfort-gmbh.example
+  unser_zeichen: die ersten beiden Buchstaben des Nachnamens
+  vollmacht: Artvollmacht
+
+# Corporate Design der Tabellenkalkulation. In Prüfungen ändert sich die Vorgabe für Eurobeträge von Aufgabe zu Aufgabe:
+# "zwei" = Eurobeträge mit zwei Dezimalstellen, "tausender" = mit 1000er-Trennzeichen ohne Dezimalstellen.
 corporate_design:
   schrift: Arial
   schriftgroesse: 10
   ueberschrift: {ausrichtung: zentriert, groesse: 12, fett: true}
+  diagramm: {schrift: voreingestellter Schriftart, titel_groesse: 14}
   prozent_nachkommastellen: 2
   zahl_nachkommastellen: 0
-  euro: '#,##0.00 "€"'
+  euro_standard: zwei
+  euro:
+    zwei: '#,##0.00 "€"'
+    tausender: '#,##0 "€"'
   datum: TT.MM.JJJJ
   uhrzeit: hh:mm
 

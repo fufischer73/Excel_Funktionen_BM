@@ -16,6 +16,7 @@ from ext_framework import *
 import gen_stufe1 as G1
 import ext_s1, ext_s4
 import unternehmen as U
+import dateiaufbau as DA
 import ext_run as ER
 from openpyxl import Workbook, load_workbook
 from openpyxl.worksheet.hyperlink import Hyperlink
@@ -185,135 +186,6 @@ TITEL = {"r1": "SUMME und MITTELWERT", "r2": "MIN und MAX", "r3": "WENN", "r4": 
          "r6": "UND und ODER mit WENN", "rm": "Meilenstein Bestellungen KW 12"}
 STEM = ER.STEM
 
-# ------------------------------------------------------------------ Start, Corporate Design und Abgabe
-def start_blatt(wb, key, specs, loesung):
-    ws = wb.create_sheet("Start", 0)
-    ws.sheet_view.showGridLines = False
-    for col, w in {"A": 2, "B": 36, "C": 12, "D": 11, "E": 62}.items():
-        ws.column_dimensions[col].width = w
-
-    def zeile(r, text, font, fuell=None, hoehe=None, bis="E", von="B"):
-        ws.merge_cells(f"{von}{r}:{bis}{r}")
-        c = ws[f"{von}{r}"]
-        c.value = text
-        c.font = font
-        c.alignment = LINKS if fuell is None or r != 1 else Alignment(horizontal="left", vertical="center", wrap_text=True, indent=1)
-        if fuell:
-            for col in "BCDE":
-                ws[f"{col}{r}"].fill = fill(fuell)
-        if hoehe:
-            ws.row_dimensions[r].height = hoehe
-        elif not isinstance(text, (int, float)):
-            ws.row_dimensions[r].height = zeilenhoehe(text, 112)
-
-    zeile(1, f"Übungsdatei: {TITEL[key]}", f(18, True, color="FFFFFF"), NAVY, 40)
-    ws["B1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
-    zeile(2, "BüroComfort GmbH  ·  Kaufmann/Kauffrau für Büromanagement  ·  Lernpfad Excel-Funktionen", f(10, italic=True, color="FFFFFF"), MITTE, 20)
-    ws["B2"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
-    zeile(4, "Worum geht es?", f(11, True, color=NAVY), HELL, 20)
-    zeile(5, THEMA[key] + " Sie arbeiten in der Abteilung Verwaltung der BüroComfort GmbH, Buntstraße 11, 24768 Rendsburg.", f(10))
-    zeile(7, "So arbeiten Sie", f(11, True, color=NAVY), HELL, 20)
-    schritte = ["Öffnen Sie nacheinander die Tabellenblätter unten in der Liste. Auf jedem Blatt steht oben der Auftrag mit der Situation.",
-                "Tragen Sie Ihre Formeln in die leeren Ergebniszellen ein. Verwenden Sie Zellbezüge und keine eingetippten Ergebnisse.",
-                "Prüfen Sie Ihre Ergebnisse mit den Selbstchecks im Modul und formatieren Sie nach dem Corporate Design.",
-                "Zum Schluss lesen Sie das Blatt „Corporate Design und Abgabe“."]
-    for i, s in enumerate(schritte):
-        zeile(8 + i, f"{i + 1}.  {s}", f(10))
-    zeile(13, "Ihre Tabellenblätter", f(11, True, color=NAVY), HELL, 20)
-    for col, h in zip("BCDE", ["Blatt (anklicken)", "Niveau", "Zeit", "Thema"]):
-        c = ws[f"{col}14"]
-        c.value = h; c.font = f(10, True); c.fill = fill(BLASS); c.border = RAND
-    r = 15
-    for s in specs:
-        lab = {"basis": "Basis", "plus": "Plus"}.get(s["niveau"], s["niveau"])
-        vals = [s["name"], lab, f"{s['min']} Min.", s["kurz"]]
-        for col, v in zip("BCDE", vals):
-            c = ws[f"{col}{r}"]; c.value = v; c.font = f(10); c.border = RAND; c.alignment = LINKS
-        ws[f"B{r}"].hyperlink = Hyperlink(ref=f"B{r}", location=f"'{s['name']}'!A1", display=s["name"])
-        ws[f"B{r}"].font = Font(name=ARIAL, size=10, underline="single", color="0563C1")
-        r += 1
-    ws[f"B{r}"].value = "Corporate Design und Abgabe"; ws[f"B{r}"].hyperlink = Hyperlink(ref=f"B{r}", location="'Corporate Design und Abgabe'!A1", display="Corporate Design und Abgabe")
-    ws[f"B{r}"].font = Font(name=ARIAL, size=10, underline="single", color="0563C1"); ws[f"B{r}"].border = RAND
-    for col, v in zip("CDE", ["Pflicht", "5 Min.", "Gestaltung und Abgabe der Datei"]):
-        c = ws[f"{col}{r}"]; c.value = v; c.font = f(10); c.border = RAND
-    r += 2
-    if loesung:
-        zeile(r, "NUR FÜR LEHRKRÄFTE: Musterlösung mit Formeln und Kontrollwerten. Nicht an Lernende ausgeben.", f(10, True, color="C00000"), GELB, 22)
-    ws.page_setup.orientation = "landscape"; ws.page_setup.fitToWidth = 1; ws.page_setup.fitToHeight = 0
-    from openpyxl.worksheet.properties import PageSetupProperties
-    ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
-
-
-def design_abgabe_blatt(wb, loesung):
-    ws = wb.create_sheet("Corporate Design und Abgabe")
-    ws.sheet_view.showGridLines = False
-    for col, w in {"A": 2, "B": 30, "C": 58, "D": 22}.items():
-        ws.column_dimensions[col].width = w
-
-    def kopf(r, text, farbe=HELL, schrift=None):
-        ws.merge_cells(f"B{r}:D{r}")
-        c = ws[f"B{r}"]; c.value = text; c.font = schrift or f(11, True, color=NAVY); c.alignment = Alignment(vertical="center", indent=1)
-        for col in "BCD": ws[f"{col}{r}"].fill = fill(farbe)
-        ws.row_dimensions[r].height = 22
-
-    def text(r, t, bold=False):
-        ws.merge_cells(f"B{r}:D{r}")
-        c = ws[f"B{r}"]; c.value = t; c.font = f(10, bold); c.alignment = LINKS
-        ws.row_dimensions[r].height = zeilenhoehe(t, 108)
-
-    ws.merge_cells("B1:D1")
-    ws["B1"].value = "Corporate Design und Abgabe"; ws["B1"].font = f(18, True, color="FFFFFF"); ws["B1"].alignment = Alignment(vertical="center", indent=1)
-    for col in "BCD": ws[f"{col}1"].fill = fill(NAVY)
-    ws.row_dimensions[1].height = 40
-    kopf(3, "Corporate Design der BüroComfort GmbH")
-    text(4, "Die Zellen, die Sie ausfüllen, liegen im Format „Standard“ vor. Formatieren Sie Ihre Ergebnisse selbst nach diesen Vorgaben:")
-    for col, h in zip("BCD", ["Element", "Vorgabe", "Beispiel"]):
-        c = ws[f"{col}5"]; c.value = h; c.font = f(10, True); c.fill = fill(BLASS); c.border = RAND
-    regeln = [("Schrift", "Schriftart Arial, Schriftgröße 10", "Arial 10", None),
-              ("Überschriften", "zentriert, Schriftgröße 12, fett", "Überschrift", "ueb"),
-              ("Prozentsätze", "mit zwei Nachkommastellen", 0.1234, PROZ),
-              ("Andere Zahlen", "ohne Nachkommastellen, mit Tausenderpunkt", 12345, "#,##0"),
-              ("Eurobeträge", "mit Tausenderpunkt und zwei Nachkommastellen", 1234.5, EURO),
-              ("Datum", "im Format TT.MM.JJJJ", 46150, "DD.MM.YYYY"),
-              ("Uhrzeit", "im Format hh:mm", 0.3541666667, "hh:mm")]
-    r = 6
-    for el, vor, bsp, fmt in regeln:
-        a, b, c = ws[f"B{r}"], ws[f"C{r}"], ws[f"D{r}"]
-        a.value, b.value = el, vor
-        a.font = f(10, True); b.font = f(10)
-        c.value = bsp
-        if fmt == "ueb":
-            c.font = f(12, True); c.alignment = Alignment(horizontal="center")
-        else:
-            c.font = f(10)
-            if fmt: c.number_format = fmt
-        for x in (a, b, c): x.border = RAND
-        r += 1
-    r += 1
-    kopf(r, "So formatieren Sie (Microsoft Excel)"); r += 1
-    for i, s in enumerate(["Markieren Sie die Zellen, die Sie formatieren möchten.",
-                           "Öffnen Sie mit ++Strg+1++ das Fenster „Zellen formatieren“ oder klicken Sie auf Start › Zahl.",
-                           "Wählen Sie das Zahlenformat (Prozent, Zahl, Währung, Datum, Uhrzeit) und die Nachkommastellen.",
-                           "Schrift und Ausrichtung stellen Sie auf der Registerkarte Start ein."], 1):
-        text(r, f"{i}.  {s.replace('++', '')}"); r += 1
-    r += 1
-    kopf(r, "Abgabe"); r += 1
-    for i, s in enumerate(["Ergänzen Sie in der Fußzeile rechtsbündig Ihren Namen und Ihre Klassenbezeichnung (Seitenlayout › Kopf- und Fußzeile).",
-                           "Speichern Sie die Datei als Excel-Arbeitsmappe (.xlsx) unter dem Namen „<Dateiname>_Nachname“.",
-                           "Laden Sie die Datei in Moodle hoch, wenn eine Abgabe verlangt ist."], 1):
-        text(r, f"{i}.  {s}"); r += 1
-    r += 1
-    kopf(r, "Checkliste vor der Abgabe"); r += 1
-    for s in ["Alle Ergebnisse sind Formeln mit Zellbezügen, keine eingetippten Zahlen.",
-              "Zahlenformate, Schrift und Überschriften entsprechen dem Corporate Design.",
-              "Die Fußzeile enthält Name und Klasse (rechtsbündig).",
-              "Die Datei ist als .xlsx gespeichert und trägt Ihren Nachnamen."]:
-        text(r, "☐  " + s); r += 1
-    ws.page_setup.orientation = "portrait"; ws.page_setup.fitToWidth = 1; ws.page_setup.fitToHeight = 0
-    from openpyxl.worksheet.properties import PageSetupProperties
-    ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
-
-
 # ------------------------------------------------------------------ Aufbau
 def recalc(pfad):
     tmp = tempfile.mkdtemp()
@@ -338,8 +210,8 @@ def bauen(key):
         wb.remove(wb.active)
         for s in specs:
             build_sheet(wb, s, loes, len(wb.sheetnames))
-        design_abgabe_blatt(wb, loes)
-        start_blatt(wb, key, specs, loes)
+        DA.design_abgabe_blatt(wb, loes)
+        DA.start_blatt(wb, TITEL[key], THEMA[key], f"{stem}.xlsx", specs, loes)
         pfad = os.path.join(KURS, "lehrkraft/loesungen" if loes else "material", f"{stem}{'-loesung' if loes else ''}.xlsx")
         wb.save(pfad)
         if loes:

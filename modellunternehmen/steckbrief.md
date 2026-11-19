@@ -89,6 +89,16 @@ Die BüroComfort GmbH beliefert Unternehmen, Schulen und Behörden in Schleswig-
 - **Mengenrabatt (Staffel, ab Stufe 3 mit SVERWEIS):** ab 0,00 €: 0 %; ab 100,00 €: 5 %; ab 500,00 €: 10 %; ab 1.000,00 €: 15 %
 - **Verzugszinsen:** 5 % pro Jahr (Zinstage nach der 360-Tage-Methode)
 
-## Corporate Design
+## Betriebsangaben (für Briefe und E-Mails)
 
-Schrift Arial 10; Überschriften zentriert, 12, fett; Prozent mit 2 Nachkommastellen; andere Zahlen mit 0; Euro mit Tausenderpunkt und zwei Nachkommastellen; Datum TT.MM.JJJJ; Uhrzeit hh:mm.
+- **Durchwahlen:** Verwaltung 120, Einkauf 140, Verkauf 160, Lager 180, Buchhaltung 130
+- **E-Mail-Adressen:** vorname.nachname@buerocomfort-gmbh.example
+- **Unser Zeichen:** die ersten beiden Buchstaben des Nachnamens; **Vollmacht:** Artvollmacht
+
+## Corporate Design (Tabellenkalkulation)
+
+- Schriftart Arial, Schriftgröße 10
+- Überschriften zentriert, Schriftgröße 12, Fettschrift
+- Diagramm mit voreingestellte Schriftart; Diagrammtitel in Schriftgröße 14
+- Format Zahl: Prozentsätze mit 2 Dezimalstellen; andere Zahlen ohne Dezimalstellen; Eurobeträge je nach Aufgabe mit zwei Dezimalstellen oder mit 1000er-Trennzeichen ohne Dezimalstellen
+- Datum TT.MM.JJJJ, Uhrzeit hh:mm

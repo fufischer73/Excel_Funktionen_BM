@@ -73,6 +73,7 @@ Hier sammeln wir Ideen, ohne sie sofort umzusetzen. Jede Idee bekommt später ei
 - Diagramme erstellen: Prüfliste, wie sie Jan in Prüfungen vorschlägt (Jan liefert die Liste).
 - Vorgehen, wenn die Prüfung bevorsteht: Material (Stift, Lineal …), Ablauf, Zeitplan.
 - **Anderes Modellunternehmen:** Statt der BüroComfort GmbH ein Unternehmen aus einem Buch, das es dort tatsächlich gibt. Es sollen nur die Namen geändert werden, der Inhalt bleibt gleich. Jan hat die Zusage des Autors, aber noch nicht die des Verlags. Vor einer Übernahme klären (siehe Entscheidung 9).
+- **Startblatt wie die erste Seite einer Prüfung:** Situation mit Abteilung und Anschrift, benötigte Dateien und Tabellenblätter, Corporate Design der Tabellenkalkulation (umgesetzt in Stufe 1, Aufbau in `werkzeuge/dateiaufbau.py`). Die Eurobetrag-Vorgabe wechselt in Prüfungen (zwei Dezimalstellen oder 1000er-Trennzeichen ohne Dezimalstellen) und lässt sich je Datei einstellen (`euro="zwei"` oder `"tausender"`). Angaben wie Durchwahl, E-Mail-Schema und „Unser Zeichen“ liegen in den Stammdaten für spätere Word-Aufgaben.
 - Was fällt Claude ein? (siehe unten)
 
 **Vorschläge von Claude:**
