@@ -58,6 +58,7 @@ Reihenfolge ist ein Vorschlag. Aufwand: S = klein, M = mittel, L = groß.
 6. Formatvorgabe: Soll jeder Auftrag das Format ausdrücklich nennen („Format: Zahl, 0 Nachkommastellen“), oder gilt eine feste Regel im Blatt „Corporate Design und Abgabe“?
 7. Prüfungsablauf: Was ist erlaubt (Stift, Lineal, Papier, Taschenrechner), wie lang dauert der Excel-Teil, wird gedruckt?
 8. Womit arbeiten die Lernenden zu Hause (Excel-Lizenz, Excel im Browser, anderes)?
+9. Modellunternehmen aus dem Buch: Schriftliche Freigabe des Verlags einholen (Zusage des Autors reicht möglicherweise nicht, weil der Verlag die Rechte an den Texten halten kann). Bis zur Klärung bleibt die BüroComfort GmbH. Danach genügt ein Austausch der Namen in den Stammdaten, wenn Paket 13 (gemeinsame Stammdaten) gebaut ist. Claude übernimmt keine Buchtexte, nur das, was Jan selbst beschreibt oder freigibt.
 
 ## 5. Ideensammlung
 
@@ -71,6 +72,7 @@ Hier sammeln wir Ideen, ohne sie sofort umzusetzen. Jede Idee bekommt später ei
 - Selbstlernen: Wie können Lernende sich kontrollieren, ohne dass die Lehrkraft alles durchsehen muss?
 - Diagramme erstellen: Prüfliste, wie sie Jan in Prüfungen vorschlägt (Jan liefert die Liste).
 - Vorgehen, wenn die Prüfung bevorsteht: Material (Stift, Lineal …), Ablauf, Zeitplan.
+- **Anderes Modellunternehmen:** Statt der BüroComfort GmbH ein Unternehmen aus einem Buch, das es dort tatsächlich gibt. Es sollen nur die Namen geändert werden, der Inhalt bleibt gleich. Jan hat die Zusage des Autors, aber noch nicht die des Verlags. Vor einer Übernahme klären (siehe Entscheidung 9).
 - Was fällt Claude ein? (siehe unten)
 
 **Vorschläge von Claude:**
