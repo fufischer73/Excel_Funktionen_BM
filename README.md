@@ -7,6 +7,7 @@ gebaut mit dem [Lernpfad-Baukasten](https://github.com/dclausen01/Lernpfad-bauka
   [`pages.yml`](.github/workflows/pages.yml)); Link erscheint nach dem ersten erfolgreichen Lauf unter
   „Settings → Pages" bzw. im Tab „Actions".
 - **Details zu Auftrag, Struktur und offenen Punkten:** [uebergabe.md](uebergabe.md)
+- **Planung, offene Arbeitspakete und Ideensammlung:** [planung.md](planung.md)
 - **Ordner:**
   - `module/` – Modultexte (Markdown, 23 Module)
   - `material/` – Übungsdateien (`.xlsx`)
