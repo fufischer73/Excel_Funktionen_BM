@@ -58,7 +58,7 @@ Reihenfolge ist ein Vorschlag. Aufwand: S = klein, M = mittel, L = groß.
 6. Formatvorgabe: Soll jeder Auftrag das Format ausdrücklich nennen („Format: Zahl, 0 Nachkommastellen“), oder gilt eine feste Regel im Blatt „Corporate Design und Abgabe“?
 7. Prüfungsablauf: Was ist erlaubt (Stift, Lineal, Papier, Taschenrechner), wie lang dauert der Excel-Teil, wird gedruckt?
 8. Womit arbeiten die Lernenden zu Hause (Excel-Lizenz, Excel im Browser, anderes)?
-9. Modellunternehmen aus dem Buch: Schriftliche Freigabe des Verlags einholen (Zusage des Autors reicht möglicherweise nicht, weil der Verlag die Rechte an den Texten halten kann). Bis zur Klärung bleibt die BüroComfort GmbH. Danach genügt ein Austausch der Namen in den Stammdaten, wenn Paket 13 (gemeinsame Stammdaten) gebaut ist. Claude übernimmt keine Buchtexte, nur das, was Jan selbst beschreibt oder freigibt.
+9. Modellunternehmen aus dem Buch: Die Bücher werden seit 2007 nicht mehr aufgelegt (vergriffen). Dann liegen die Rechte sehr wahrscheinlich wieder beim Autor, **aber das sollte der Autor schriftlich bestätigen** (kurze E-Mail genügt): (a) die Rechte liegen bei ihm, (b) Nutzung, Bearbeitung (Namen ändern) und Weitergabe an Lernende, auch über Moodle, sind erlaubt, (c) ob eine Nennung gewünscht ist. Die Schutzfrist läuft unabhängig vom Verkauf weiter. Bis zur Bestätigung bleibt die BüroComfort GmbH. Danach genügt ein Austausch der Namen in den Stammdaten, wenn Paket 13 gebaut ist. Claude übernimmt keine Buchtexte, nur das, was Jan selbst beschreibt oder freigibt.
 
 ## 5. Ideensammlung
 
