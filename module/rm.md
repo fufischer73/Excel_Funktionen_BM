@@ -17,7 +17,7 @@ raster:
     erreicht: Summe, Durchschnitt, größter und kleinster Bestellwert sowie die Summen der Rabatte und Zusatzboni sind richtig berechnet.
     besonders_gut: Die Kennzahlen sind zusätzlich durch eine zweite Rechnung gegengeprüft, zum Beispiel Summe der Zahlbeträge plus Rabatte plus Boni.
   - kriterium: WENN-Logik
-    erreicht: Rabattsatz und Rabatt stimmen für alle Bestellungen, auch an den Grenzen 100,00 € und 1.000,00 €.
+    erreicht: Rabattsatz und Rabatt stimmen für alle Bestellungen, auch an den Grenzen 100,00 € und 500,00 €.
     besonders_gut: Die Formel ist übersichtlich aufgebaut, die Grenzfälle sind kurz erklärt.
   - kriterium: UND und ODER
     erreicht: Zusatzbonus und Versandart stimmen für alle Bestellungen, auch bei genau 300,00 €.
@@ -42,7 +42,7 @@ Lesen Sie zuerst das Blatt „Aufgabenstellung“. Es nennt die Regeln:
 
 | Regel | Inhalt |
 | --- | --- |
-| Rabatt | 5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 € |
+| Rabatt | 5 % ab 100,00 €, 10 % ab 500,00 € |
 | Zusatzbonus | 2 % des Bestellwerts für Bonuskunden ab 300,00 € Bestellwert |
 | Versandart | Deutschland oder Österreich = „Standard“, sonst „Ausland“ |
 
@@ -66,7 +66,7 @@ Das Raster sehen Sie **vor** der Arbeit. So wissen Sie, worauf es ankommt.
 
 :::checkliste Vor der Abgabe prüfen
 - Alle 15 Zeilen haben Rabattsatz, Rabatt, Zusatzbonus, Versandart und Zahlbetrag.
-- Die Grenzfälle sind richtig: B-5008 (1.000,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).
+- Die Grenzfälle sind richtig: B-5015 (500,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).
 - Die Kennzahlen stehen in der Kennzahlen-Tabelle ab Zeile 21.
 - Ergebnisse sind Formeln. Es steht keine eingetippte Zahl in einer Ergebniszelle.
 - Zahlenformate, Schrift und Überschrift entsprechen dem Corporate Design.
@@ -85,7 +85,7 @@ Wer vor dem Ende der Zeit fertig ist, kann die folgende Erweiterung bearbeiten. 
 :::aufgabe plus 20 Erweiterung · Kalkulation mit Express-Versand
 Öffnen Sie das Blatt „Erweiterung KW 13“ und lösen Sie die Aufträge:
 
-- Ermitteln Sie in Spalte F den Rabattsatz (5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 €) und in Spalte G den Rabatt in Euro.
+- Ermitteln Sie in Spalte F den Rabattsatz (5 % ab 100,00 €, 10 % ab 500,00 €) und in Spalte G den Rabatt in Euro.
 - Berechnen Sie in Spalte H den Zusatzbonus (2 % des Bestellwerts für Bonuskunden ab 300,00 €).
 - Legen Sie in Spalte I die Versandart fest (Express, Standard oder Ausland).
 - Berechnen Sie in Spalte J den Zahlbetrag.
@@ -103,19 +103,19 @@ Wer vor dem Ende der Zeit fertig ist, kann die folgende Erweiterung bearbeiten. 
 :::
 
 :::loesung Kontrolle: Erwartete Ergebnisse
-- Spalte F (F14 bis F25): 10,00 %; 0,00 %; 15,00 %; 5,00 %; 5,00 %; 10,00 %; 15,00 %; 5,00 %; 5,00 %; 10,00 %; 5,00 %; 15,00 %
-- Spalte G (G14 bis G25): 62,00 €; 0,00 €; 187,50 €; 24,00 €; 17,00 €; 50,00 €; 150,00 €; 15,00 €; 15,00 €; 76,04 €; 5,00 €; 283,50 €
+- Spalte F (F14 bis F25): 10,00 %; 0,00 %; 10,00 %; 5,00 %; 5,00 %; 10,00 %; 10,00 %; 5,00 %; 5,00 %; 10,00 %; 5,00 %; 10,00 %
+- Spalte G (G14 bis G25): 62,00 €; 0,00 €; 125,00 €; 24,00 €; 17,00 €; 50,00 €; 100,00 €; 15,00 €; 15,00 €; 76,04 €; 5,00 €; 189,00 €
 - Spalte H (H14 bis H25): 12,40 €; 0,00 €; 25,00 €; 0,00 €; 6,80 €; 10,00 €; 0,00 €; 0,00 €; 6,00 €; 0,00 €; 0,00 €; 37,80 €
 - Spalte I (I14 bis I25): „Express“; „Standard“; „Express“; „Ausland“; „Ausland“; „Express“; „Standard“; „Standard“; „Standard“; „Standard“; „Standard“; „Ausland“
-- Spalte J (J14 bis J25): 545,60 €; 95,50 €; 1.037,50 €; 456,00 €; 316,20 €; 440,00 €; 850,00 €; 284,99 €; 279,00 €; 684,36 €; 95,00 €; 1.568,70 €
-- Summe Zahlbeträge (B28): 6.652,85 €
-- Durchschnitt Zahlbetrag (B29): 554,40 €
-- Größter Zahlbetrag (B30): 1.568,70 €
+- Spalte J (J14 bis J25): 545,60 €; 95,50 €; 1.100,00 €; 456,00 €; 316,20 €; 440,00 €; 900,00 €; 284,99 €; 279,00 €; 684,36 €; 95,00 €; 1.663,20 €
+- Summe Zahlbeträge (B28): 6.859,85 €
+- Durchschnitt Zahlbetrag (B29): 571,65 €
+- Größter Zahlbetrag (B30): 1.663,20 €
 - Expresssendungen (B31): 3
 :::
 
 :::loesung Lösung
-Spalte F (ab F14): `=WENN(E14>=1000;0,15;WENN(E14>=500;0,1;WENN(E14>=100;0,05;0)))`. Spalte G (ab G14): `=E14*F14`. Spalte H (ab H14): `=WENN(UND(C14="Ja";E14>=300);E14*0,02;0)`. Spalte I (ab I14): `=WENN(UND(D14="DE";C14="Ja";E14>=500);"Express";WENN(ODER(D14="DE";D14="AT");"Standard";"Ausland"))`. Spalte J (ab J14): `=E14-G14-H14`. B28: `=SUMME(J14:J25)`. B29: `=MITTELWERT(J14:J25)`. B30: `=MAX(J14:J25)`. B31: `=ZÄHLENWENN(I14:I25;"Express")`.
+Spalte F (ab F14): `=WENN(E14>=500;0,1;WENN(E14>=100;0,05;0))`. Spalte G (ab G14): `=E14*F14`. Spalte H (ab H14): `=WENN(UND(C14="Ja";E14>=300);E14*0,02;0)`. Spalte I (ab I14): `=WENN(UND(D14="DE";C14="Ja";E14>=500);"Express";WENN(ODER(D14="DE";D14="AT");"Standard";"Ausland"))`. Spalte J (ab J14): `=E14-G14-H14`. B28: `=SUMME(J14:J25)`. B29: `=MITTELWERT(J14:J25)`. B30: `=MAX(J14:J25)`. B31: `=ZÄHLENWENN(I14:I25;"Express")`.
 :::
 :::
 

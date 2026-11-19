@@ -263,22 +263,22 @@ def r4(loesung):
         "Die Geschäftsleitung hat einen gestaffelten Rabatt auf den Bestellwert beschlossen. Die Staffel finden Sie rechts neben der Tabelle.",
         ["Ermitteln Sie in Spalte C für jede Bestellung den Rabattsatz.",
          "Berechnen Sie in Spalte D den Rabatt in Euro und in Spalte E den Rechnungsbetrag.",
-         "Prüfen Sie die Grenzfälle (99,99 €, 100,00 €, 499,99 €, 500,00 €, 999,99 €, 1.000,00 €) und korrigieren Sie Ihre Formel, falls ein Ergebnis nicht zur Staffel passt.",
+         "Prüfen Sie die Grenzfälle (99,99 €, 100,00 €, 499,99 € und 500,00 €) und korrigieren Sie Ihre Formel, falls ein Ergebnis nicht zur Staffel passt.",
          "Formatieren Sie Ihre Ergebnisse nach dem Corporate Design der BüroComfort GmbH."],
-        "Mehrere Bedingungen lassen sich in einer Formel ineinander schachteln. Überlegen Sie, mit welcher Bedingung Sie beginnen.",
-        "Lösung: C4 =WENN(B4>=1000;0,15;WENN(B4>=500;0,1;WENN(B4>=100;0,05;0))); D4 =B4*C4; E4 =B4-D4. "
-        "Beispiele: 99,99 € → 0 %, 100,00 € → 5 %, 500,00 € → 10 %, 1.000,00 € → 15 %.", loesung)
+        "Zwei WENN-Funktionen lassen sich ineinander schachteln und liefern so drei Ergebnisse. Überlegen Sie, mit welcher Bedingung Sie beginnen.",
+        "Lösung: C4 =WENN(B4>=500;0,1;WENN(B4>=100;0,05;0)); D4 =B4*C4; E4 =B4-D4. "
+        "Beispiele: 99,99 € → 0 %, 100,00 € → 5 %, 499,99 € → 5 %, 500,00 € → 10 %.", loesung)
     ws = wb.create_sheet("Rabatt")
     titel_zeile(ws, "BüroComfort GmbH – Rabattberechnung", 5)
     tabelle_kopf(ws, 3, ["Bestell-Nr.", "Bestellwert", "Rabattsatz", "Rabatt in €", "Rechnungsbetrag"])
     werte = [45.00, 99.99, 100.00, 250.00, 499.99, 500.00, 780.50, 999.99, 1000.00, 1450.00]
     daten_zellen(ws, 4, [(f"B-3{str(i + 1).zfill(3)}", w) for i, w in enumerate(werte)], [None, EURO])
     for r in range(4, 14):
-        ziel(ws, f"C{r}", f"=IF(B{r}>=1000,0.15,IF(B{r}>=500,0.1,IF(B{r}>=100,0.05,0)))", PROZ, loesung)
+        ziel(ws, f"C{r}", f"=IF(B{r}>=500,0.1,IF(B{r}>=100,0.05,0))", PROZ, loesung)
         ziel(ws, f"D{r}", f"=B{r}*C{r}", EURO, loesung)
         ziel(ws, f"E{r}", f"=B{r}-D{r}", EURO, loesung)
     tabelle_kopf(ws, 3, ["Rabattstaffel: Bestellwert ab", "Rabattsatz"], 7)
-    daten_zellen(ws, 4, [(0, 0.0), (100, 0.05), (500, 0.10), (1000, 0.15)], [EURO, PROZ], 7)
+    daten_zellen(ws, 4, [(0, 0.0), (100, 0.05), (500, 0.10)], [EURO, PROZ], 7)
     breiten(ws, {"A": 14, "B": 16, "C": 14, "D": 16, "E": 18, "F": 4, "G": 28, "H": 14})
     fuss(ws, loesung)
     return speichern(wb, "r4-rabatt", loesung)
@@ -354,7 +354,7 @@ def rm(loesung):
         wb, "Meilenstein: Bestellungen der KW 12 kalkulieren in der Abteilung Verwaltung",
         "Sie arbeiten in der Abteilung Verwaltung der BüroComfort GmbH, Buntstraße 11, 24768 Rendsburg. "
         "Die Buchhaltung braucht für die Kalenderwoche 12 eine vollständige Kalkulation aller Bestellungen. "
-        "Es gelten: Rabattstaffel auf den Bestellwert: 5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 €. "
+        "Es gelten: Rabattstaffel auf den Bestellwert: 5 % ab 100,00 €, 10 % ab 500,00 €. "
         "Zusatzbonus: Bonuskunden mit einem Bestellwert ab 300,00 € erhalten 2 % des Bestellwerts als Zusatzbonus. "
         "Versandart: Deutschland oder Österreich = „Standard“, alle anderen Länder = „Ausland“.",
         ["Ermitteln Sie in Spalte F den Rabattsatz und in Spalte G den Rabatt in Euro.",
@@ -363,10 +363,10 @@ def rm(loesung):
          "Berechnen Sie in Spalte J den Zahlbetrag (Bestellwert minus Rabatt minus Zusatzbonus).",
          "Ermitteln Sie in der Kennzahlen-Tabelle ab Zeile 21: Summe der Bestellwerte, Durchschnitt der Bestellwerte, größten und kleinsten Bestellwert, Summe der Rabatte und Summe der Zusatzboni.",
          "Formatieren Sie die Tabelle nach dem Corporate Design der BüroComfort GmbH."],
-        "Verwenden Sie in Ihren Formeln Zellbezüge und keine eingetippten Ergebnisse. Prüfen Sie die Grenzfälle (z. B. 100,00 € und 1.000,00 €) selbst.",
-        "Lösung: F =WENN(E>=1000;0,15;WENN(E>=500;0,1;WENN(E>=100;0,05;0))); G =E*F; H =WENN(UND(C=\"Ja\";E>=300);E*0,02;0); "
+        "Verwenden Sie in Ihren Formeln Zellbezüge und keine eingetippten Ergebnisse. Prüfen Sie die Grenzfälle (z. B. 100,00 € und 500,00 €) selbst.",
+        "Lösung: F =WENN(E>=500;0,1;WENN(E>=100;0,05;0)); G =E*F; H =WENN(UND(C=\"Ja\";E>=300);E*0,02;0); "
         "I =WENN(ODER(D=\"DE\";D=\"AT\");\"Standard\";\"Ausland\"); J =E-G-H. Kennzahlen mit SUMME, MITTELWERT, MAX, MIN. "
-        "Erwartete Summe der Bestellwerte: 7.586,15 €.", loesung)
+        "Erwartete Summe der Bestellwerte: 7.581,15 €.", loesung)
     ws = wb.create_sheet("Bestellungen KW 12")
     titel_zeile(ws, "BüroComfort GmbH – Kalkulation der Bestellungen KW 12", 10)
     tabelle_kopf(ws, 3, ["Bestell-Nr.", "Kunden-Nr.", "Bonuskunde", "Land", "Bestellwert", "Rabattsatz",
@@ -378,10 +378,10 @@ def rm(loesung):
              ("B-5009", "K-4109", "Nein", "DE", 45.20), ("B-5010", "K-4110", "Ja", "CH", 799.00),
              ("B-5011", "K-4111", "Ja", "DE", 300.00), ("B-5012", "K-4112", "Nein", "AT", 1495.80),
              ("B-5013", "K-4113", "Ja", "DK", 100.00), ("B-5014", "K-4114", "Nein", "DE", 275.00),
-             ("B-5015", "K-4115", "Ja", "AT", 505.00)]
+             ("B-5015", "K-4115", "Ja", "AT", 500.00)]
     daten_zellen(ws, 4, daten, [None, None, None, None, EURO])
     for r in range(4, 19):
-        ziel(ws, f"F{r}", f"=IF(E{r}>=1000,0.15,IF(E{r}>=500,0.1,IF(E{r}>=100,0.05,0)))", PROZ, loesung)
+        ziel(ws, f"F{r}", f"=IF(E{r}>=500,0.1,IF(E{r}>=100,0.05,0))", PROZ, loesung)
         ziel(ws, f"G{r}", f"=E{r}*F{r}", EURO, loesung)
         ziel(ws, f"H{r}", f'=IF(AND(C{r}="Ja",E{r}>=300),E{r}*0.02,0)', EURO, loesung)
         ziel(ws, f"I{r}", f'=IF(OR(D{r}="DE",D{r}="AT"),"Standard","Ausland")', None, loesung)

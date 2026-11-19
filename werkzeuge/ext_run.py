@@ -43,8 +43,14 @@ def run(key, specs, patch=True):
         for s in specs: build_sheet(wb, s, loes, len(wb.sheetnames))
         overview(wb, specs)
         wb.save(p)
-    out = subprocess.run(["python3", "/mnt/skills/public/xlsx/scripts/recalc.py", pl, "60"], capture_output=True, text=True)
-    print(key, out.stdout.strip()[:300], out.stderr.strip()[:200])
+    if os.path.exists("/mnt/skills/public/xlsx/scripts/recalc.py"):
+        out = subprocess.run(["python3", "/mnt/skills/public/xlsx/scripts/recalc.py", pl, "60"], capture_output=True, text=True)
+        print(key, out.stdout.strip()[:300], out.stderr.strip()[:200])
+    else:  # ohne die Skill-Umgebung: LibreOffice rechnet neu
+        import tempfile, shutil
+        tmp = tempfile.mkdtemp()
+        subprocess.run(["soffice", "--headless", "--calc", "--convert-to", "xlsx:Calc MS Excel 2007 XML", "--outdir", tmp, pl], check=True, capture_output=True, timeout=180)
+        shutil.copy(os.path.join(tmp, os.path.basename(pl)), pl)
     vals = load_workbook(pl, data_only=True)
     blocks = []
     for i, s in enumerate(specs, 2):

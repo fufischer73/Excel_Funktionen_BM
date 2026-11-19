@@ -17,7 +17,7 @@ raster:
     erreicht: Summe, Durchschnitt, größter und kleinster Bestellwert sowie die Summen der Rabatte und Zusatzboni sind richtig berechnet.
     besonders_gut: Die Kennzahlen sind zusätzlich durch eine zweite Rechnung gegengeprüft, zum Beispiel Summe der Zahlbeträge plus Rabatte plus Boni.
   - kriterium: WENN-Logik
-    erreicht: Rabattsatz und Rabatt stimmen für alle Bestellungen, auch an den Grenzen 100,00 € und 1.000,00 €.
+    erreicht: Rabattsatz und Rabatt stimmen für alle Bestellungen, auch an den Grenzen 100,00 € und 500,00 €.
     besonders_gut: Die Formel ist übersichtlich aufgebaut, die Grenzfälle sind kurz erklärt.
   - kriterium: UND und ODER
     erreicht: Zusatzbonus und Versandart stimmen für alle Bestellungen, auch bei genau 300,00 €.
@@ -42,7 +42,7 @@ Lesen Sie zuerst das Blatt „Aufgabenstellung“. Es nennt die Regeln:
 
 | Regel | Inhalt |
 | --- | --- |
-| Rabatt | 5 % ab 100,00 €, 10 % ab 500,00 €, 15 % ab 1.000,00 € |
+| Rabatt | 5 % ab 100,00 €, 10 % ab 500,00 € |
 | Zusatzbonus | 2 % des Bestellwerts für Bonuskunden ab 300,00 € Bestellwert |
 | Versandart | Deutschland oder Österreich = „Standard“, sonst „Ausland“ |
 
@@ -66,7 +66,7 @@ Das Raster sehen Sie **vor** der Arbeit. So wissen Sie, worauf es ankommt.
 
 :::checkliste Vor der Abgabe prüfen
 - Alle 15 Zeilen haben Rabattsatz, Rabatt, Zusatzbonus, Versandart und Zahlbetrag.
-- Die Grenzfälle sind richtig: B-5008 (1.000,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).
+- Die Grenzfälle sind richtig: B-5015 (500,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).
 - Die Kennzahlen stehen in der Kennzahlen-Tabelle ab Zeile 21.
 - Ergebnisse sind Formeln. Es steht keine eingetippte Zahl in einer Ergebniszelle.
 - Zahlenformate, Schrift und Überschrift entsprechen dem Corporate Design.
