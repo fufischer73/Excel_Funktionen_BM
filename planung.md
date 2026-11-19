@@ -42,7 +42,7 @@ Reihenfolge ist ein Vorschlag. Aufwand: S = klein, M = mittel, L = groß.
 | 10 | **Auslieferung** | Web-Build mit dem Baukasten, Moodle-Paket (SCORM), Hosting bei privatem Repo klären, Datenschutz mit der Schule abstimmen | M |
 | 11 | **Qualitätssicherung** | alle Dateien in Excel öffnen und Ergebnisse prüfen, 6 Quellen auf `zu_pruefen`, Quellen und Medien für neue Module, Kurz-Checks und Einstufungstests nachziehen, Zeitbilanz und Badge „ca. 10 Doppelstunden“ anpassen, Freigabe durch Jan | M |
 | 12 | **12-Wochen-Plan** | Wochenplan mit Unterricht und Zuhause-Lernen, passend zu Kann-Liste und Prüfungstermin | S bis M |
-| 13 | **Modellunternehmen BüroComfort GmbH** | Steckbrief und gemeinsame Stammdaten (Filialen, Warengruppen, Artikel, Kunden, Lieferanten, Regeln wie Skonto und Versand) als Datenquelle für alle Generatoren | M |
+| 13 | **Modellunternehmen BüroComfort GmbH** | **Grundlage fertig (19.11.2026):** `modellunternehmen/` mit Stammdaten, Steckbrief, Abweichungsliste, Prüf- und Tauschwerkzeug. **Offen:** Generatoren der Stufen 2 bis 4 auf `unternehmen.py` umstellen (geschieht in Paket 1 bis 3) | M |
 | 14 | **Selbstkontrolle** | Kontrollzellen und Gegenproben in allen Dateien; später Browser-Seite zum Prüfen der Schülerdatei (lokal) | M bis L |
 | 15 | **Prozentrechnung** (Teil von Paket 6) | Anteil von, Prozentwert und Grundwert, Veränderung in Prozent, Aufschlag und Abzug; typische Fehler beim Prozentformat | M |
 | 16 | **Prüfungsvorbereitung** | Modul „Die Prüfung steht an“: Material, Ablauf, Zeitplan, Datei- und Abgaberegeln, Checkliste; Diagramm-Prüfliste von Jan | S bis M |

@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ext_framework import *
 import gen_stufe1 as G1
 import ext_s1, ext_s4
+import unternehmen as U
 import ext_run as ER
 from openpyxl import Workbook, load_workbook
 from openpyxl.worksheet.hyperlink import Hyperlink
@@ -71,10 +72,7 @@ BASIS["r2"] = dict(name="Preisliste", niveau="basis", min=12, kurz="Preisspanne 
         "Formatieren Sie Ihre Ergebnisse nach dem Corporate Design (siehe Blatt „Corporate Design und Abgabe“)."],
  hinweis="Beantworten Sie die Fragen mit Funktionen und nicht durch Hinsehen. Wenn sich ein Preis ändert, soll sich Ihr Ergebnis automatisch anpassen.",
  cols=[("Art.-Nr.", 14, None, "d", ""), ("Artikel", 32, None, "d", ""), ("Preis", 14, EURO, "d", "")],
- rows=[("A-1001", "Schreibtischstuhl Basic", 129.00), ("A-1002", "Schreibtisch höhenverstellbar", 489.90), ("A-1003", "Aktenschrank 2 Ordnerhöhen", 219.00),
-       ("A-1004", "Ordner A4 breit", 2.49), ("A-1005", "Kugelschreiber", 0.89), ("A-1006", "Kopierpapier 500 Blatt", 4.95), ("A-1007", "Locher", 8.90),
-       ("A-1008", "Tacker", 6.50), ("A-1009", "Monitorständer", 34.90), ("A-1010", "Schreibtischlampe LED", 42.50), ("A-1011", "Rollcontainer", 119.00),
-       ("A-1012", "Whiteboard 90 x 60 cm", 56.00)],
+ rows=[(a[0], a[1], a[2]) for a in (U.artikel(n) for n in ("A-1001", "A-1002", "A-1003", "A-1004", "A-1005", "A-1006", "A-1007", "A-1008", "A-1010", "A-1013", "A-1014", "A-1015"))],
  extras=[("label", "A28", "Niedrigster Preis", True), ("label", "A29", "Höchster Preis", True), ("label", "A30", "Preisspanne", True), ("label", "A31", "Durchschnittspreis", True),
          ("answer", "B28", "Kugelschreiber", "Artikel zum niedrigsten Preis", None), ("answer", "B29", "Schreibtisch höhenverstellbar", "Artikel zum höchsten Preis", None),
          ("target", "C28", "=MIN(C14:C25)", EURO, False, "Niedrigster Preis"), ("target", "C29", "=MAX(C14:C25)", EURO, False, "Höchster Preis"),

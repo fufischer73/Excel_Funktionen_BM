@@ -1,0 +1,113 @@
+# Stammdaten des Modellunternehmens (einzige Quelle für alle Übungsdateien und Modultexte)
+# Alle Angaben sind fiktiv. Keine personenbezogenen Daten.
+# Die Generatoren in werkzeuge/ lesen diese Datei über werkzeuge/unternehmen.py.
+# Ein anderes Modellunternehmen: Namen hier und in "tausch" ändern, dann Dateien neu erzeugen
+# (siehe werkzeuge/firma_tauschen.py und modellunternehmen/README.md).
+
+firma:
+  name: BüroComfort GmbH
+  kurzname: BüroComfort
+  strasse: Buntstraße 11
+  plz: "24768"
+  ort: Rendsburg
+  branche: Großhandel für Büroausstattung und Bürobedarf
+  abteilung_lernende: Verwaltung
+  beruf: Kaufmann/Kauffrau für Büromanagement
+  beschreibung: >
+    Die BüroComfort GmbH beliefert Unternehmen, Schulen und Behörden in Schleswig-Holstein mit Büromöbeln,
+    Papier, Schreibwaren und Bürotechnik. Die Zentrale mit Verwaltung und Hauptlager sitzt in Rendsburg.
+    Die Lernenden arbeiten in der Abteilung Verwaltung.
+
+filialen:
+  - {name: Rendsburg, art: Zentrale}
+  - {name: Kiel, art: Filiale}
+  - {name: Flensburg, art: Filiale}
+  - {name: Neumünster, art: Filiale}
+
+abteilungen: [Verwaltung, Einkauf, Verkauf, Lager, Buchhaltung, Personal, Vertrieb, Versand, Kundenservice]
+
+warengruppen: [Büromöbel, Papier, Schreibwaren, Technik]
+
+# Artikelstamm. Preise netto in Euro je Einheit.
+artikel:
+  - {nr: A-1001, bezeichnung: Schreibtischstuhl Basic, wg: Büromöbel, einheit: Stück, preis: 129.00}
+  - {nr: A-1002, bezeichnung: Schreibtisch höhenverstellbar, wg: Büromöbel, einheit: Stück, preis: 489.90}
+  - {nr: A-1003, bezeichnung: Aktenschrank 2 Ordnerhöhen, wg: Büromöbel, einheit: Stück, preis: 219.00}
+  - {nr: A-1004, bezeichnung: Ordner A4 breit, wg: Schreibwaren, einheit: Stück, preis: 2.49}
+  - {nr: A-1005, bezeichnung: Kugelschreiber, wg: Schreibwaren, einheit: Stück, preis: 0.89}
+  - {nr: A-1006, bezeichnung: Kopierpapier 500 Blatt, wg: Papier, einheit: Paket, preis: 4.95}
+  - {nr: A-1007, bezeichnung: Tacker, wg: Schreibwaren, einheit: Stück, preis: 7.90}
+  - {nr: A-1008, bezeichnung: Locher, wg: Schreibwaren, einheit: Stück, preis: 6.40}
+  - {nr: A-1009, bezeichnung: Notizblock A5, wg: Papier, einheit: Stück, preis: 1.35}
+  - {nr: A-1010, bezeichnung: Bürolampe LED, wg: Technik, einheit: Stück, preis: 34.90}
+  - {nr: A-1011, bezeichnung: Haftnotizen, wg: Papier, einheit: Block, preis: 2.10}
+  - {nr: A-1012, bezeichnung: Mauspad, wg: Technik, einheit: Stück, preis: 3.75}
+  - {nr: A-1013, bezeichnung: Monitorständer, wg: Technik, einheit: Stück, preis: 34.90}
+  - {nr: A-1014, bezeichnung: Rollcontainer, wg: Büromöbel, einheit: Stück, preis: 119.00}
+  - {nr: A-1015, bezeichnung: Whiteboard 90 x 60 cm, wg: Büromöbel, einheit: Stück, preis: 56.00}
+  - {nr: A-1016, bezeichnung: Toner schwarz, wg: Technik, einheit: Stück, preis: 64.90}
+  - {nr: A-1017, bezeichnung: Heftklammern Schachtel, wg: Schreibwaren, einheit: Schachtel, preis: 1.85}
+  - {nr: A-1018, bezeichnung: Besucherstuhl, wg: Büromöbel, einheit: Stück, preis: 74.50}
+  - {nr: A-1019, bezeichnung: Aktenvernichter, wg: Technik, einheit: Stück, preis: 89.00}
+  - {nr: A-1020, bezeichnung: Briefumschläge 500er Pack, wg: Papier, einheit: Paket, preis: 14.20}
+
+# Kunden. Gruppe bestimmt das Zahlungsziel (siehe kundengruppen).
+kunden:
+  - {nr: K-4101, name: Beispielbau GmbH, ort: Rendsburg, gruppe: A}
+  - {nr: K-4102, name: Musterhandel Nord KG, ort: Kiel, gruppe: B}
+  - {nr: K-4103, name: Modellgarten e. K., ort: Flensburg, gruppe: C}
+  - {nr: K-4104, name: Probe-Druck GmbH, ort: Neumünster, gruppe: A}
+  - {nr: K-4105, name: Demo-Pension Förde, ort: Kiel, gruppe: C}
+  - {nr: K-4106, name: Testwerk Elektro GmbH, ort: Eckernförde, gruppe: B}
+  - {nr: K-4107, name: Muster-Bäckerei Küste OHG, ort: Schleswig, gruppe: C}
+  - {nr: K-4108, name: Beispiel-Logistik AG, ort: Rendsburg, gruppe: A}
+
+kundengruppen:
+  - {gruppe: A, zahlungsziel_tage: 30}
+  - {gruppe: B, zahlungsziel_tage: 20}
+  - {gruppe: C, zahlungsziel_tage: 14}
+
+lieferanten:
+  - {nr: L-4401, name: Papierhandel Nord, ort: Kiel}
+  - {nr: L-4402, name: Bürotechnik Süd, ort: Hamburg}
+  - {nr: L-4403, name: Möbelwerk West, ort: Bremen}
+  - {nr: L-4404, name: Schreibwaren Ost, ort: Lübeck}
+  - {nr: L-4405, name: Druckservice Mitte, ort: Hannover}
+  - {nr: L-4406, name: Zubehör Direkt, ort: Hamburg}
+  - {nr: L-4407, name: Verpackung Express, ort: Neumünster}
+
+# Geschäftsregeln, die in den Aufgaben vorkommen. Abweichende Regeln einzelner Aufgaben stehen in abweichungen.md.
+regeln:
+  umsatzsteuer: 0.19
+  umsatzsteuer_ermaessigt: 0.07
+  versand:
+    frei_ab_bestellwert: 50.00      # R3: über 50 € versandkostenfrei
+    pauschale: 4.95
+  skonto:
+    satz: 0.02
+    frist_tage: 10
+  mengenrabatt_einfach:            # höchstens zwei WENN (R4, RM)
+    - {ab: 0, satz: 0.00}
+    - {ab: 100, satz: 0.05}
+    - {ab: 500, satz: 0.10}
+  mengenrabatt_staffel:            # mehr Stufen: nur mit SVERWEIS (ab Stufe 3)
+    - {ab: 0, satz: 0.00}
+    - {ab: 100, satz: 0.05}
+    - {ab: 500, satz: 0.10}
+    - {ab: 1000, satz: 0.15}
+  zinssatz_verzug: 0.05
+  stichtag_beispiel: 2026-06-15
+
+corporate_design:
+  schrift: Arial
+  schriftgroesse: 10
+  ueberschrift: {ausrichtung: zentriert, groesse: 12, fett: true}
+  prozent_nachkommastellen: 2
+  zahl_nachkommastellen: 0
+  euro: '#,##0.00 "€"'
+  datum: TT.MM.JJJJ
+  uhrzeit: hh:mm
+
+# Für einen Wechsel des Modellunternehmens: alte Schreibweise -> neue Schreibweise.
+# Reihenfolge wichtig (längere Texte zuerst). Nichts ändern, solange das Unternehmen bleibt.
+tausch: []
