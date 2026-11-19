@@ -20,3 +20,9 @@ Python-Skripte (benötigen `openpyxl`), die die Excel-Dateien in `material/` und
 - Handänderungen in `module/*.md` an den Aufgabenblöcken gehen beim erneuten Lauf verloren. Dann `md_orig/` und die Spezifikationen anpassen.
 - Pfade in `ext_run.py` (`KURS`, `ORIG`) und `ext_framework.py` (Import von `gen_stufe1`) sind auf diese Umgebung eingestellt. Bei anderem Speicherort anpassen.
 - Neuberechnung der Lösungen: `/mnt/skills/public/xlsx/scripts/recalc.py` (nur in dieser Umgebung vorhanden, sonst LibreOffice).
+
+## Neuer Aufbau der Übungsdateien (ab 19.11.2026)
+- Jede Datei: Blatt „Start“ (Überblick mit Links), Arbeitsblätter (Auftrag oben auf dem Blatt, Tabelle ab Zeile 14), Blatt „Corporate Design und Abgabe“.
+- **Stufe 1** (R1 bis R6, RM) wird komplett mit `python3 werkzeuge/gen_stufe1_neu.py [r1 r2 ...]` erzeugt (Basisblätter dort in `BASIS`, Zusatzblätter aus `ext_s1.py`/`ext_s4.py`). Dabei werden Übungsdateien, Lösungen und `module/*.md` neu geschrieben. `gen_stufe1.py` und `ext_run.py ext_s1` für Stufe 1 nicht mehr verwenden.
+- Stufen 2 bis 4 sind noch im alten Aufbau (Blatt „Aufgabenstellung“) und werden als Nächstes umgestellt.
+- Grundlagenmodule G1/G2: `gen_grundlagen.py`.

@@ -35,10 +35,10 @@ quellen: [q-ms-wenn, q-ms-und, q-oder]
 Sie arbeiten in der Abteilung Verwaltung der BüroComfort GmbH. Die Buchhaltung benötigt für die Kalenderwoche 12 eine vollständige Kalkulation aller Bestellungen.
 
 :::material material/rm-kalkulation.xlsx Übungsdatei: Bestellungen KW 12
-Tabellenblatt „Bestellungen KW 12“ mit 15 Bestellungen. Das Blatt „Aufgabenstellung“ enthält alle Regeln und Aufträge.
+Tabellenblatt „Bestellungen KW 12“ mit 15 Bestellungen. Der Auftrag mit allen Regeln steht oben im Blatt. Das Blatt „Start“ gibt einen Überblick.
 :::
 
-Lesen Sie zuerst das Blatt „Aufgabenstellung“. Es nennt die Regeln:
+Lesen Sie zuerst den Auftrag oben im Blatt „Bestellungen KW 12“. Er nennt die Regeln:
 
 | Regel | Inhalt |
 | --- | --- |
@@ -67,7 +67,7 @@ Das Raster sehen Sie **vor** der Arbeit. So wissen Sie, worauf es ankommt.
 :::checkliste Vor der Abgabe prüfen
 - Alle 15 Zeilen haben Rabattsatz, Rabatt, Zusatzbonus, Versandart und Zahlbetrag.
 - Die Grenzfälle sind richtig: B-5015 (500,00 €), B-5011 (300,00 €) und B-5013 (100,00 €).
-- Die Kennzahlen stehen in der Kennzahlen-Tabelle ab Zeile 21.
+- Die Kennzahlen stehen in der Kennzahlen-Tabelle ab Zeile 31.
 - Ergebnisse sind Formeln. Es steht keine eingetippte Zahl in einer Ergebniszelle.
 - Zahlenformate, Schrift und Überschrift entsprechen dem Corporate Design.
 - Die Fußzeile enthält Name und Klasse (rechtsbündig).

@@ -5,7 +5,7 @@ sys.argv = sys.argv[:1] + ["/tmp/_a", "/tmp/_l"]
 from gen_stufe1 import (EURO, PROZ, ZAHL, F10, F10B, F12B, F10I, GRAU, RAHMEN, WRAP, ZENTR, zeilenhoehe)
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter as L, column_index_from_string as CI
-from openpyxl.styles import Alignment
+from openpyxl.styles import Alignment, Font, PatternFill
 
 DATUM = "DD.MM.YYYY"
 UHR = "hh:mm"
@@ -99,6 +99,14 @@ def build_sheet(wb, spec, loesung, index):
     merged(3, "Ihre Aufträge", F10B)
     for i, a in enumerate(spec["auftr"]): merged(4 + i, f"{i + 1}. {a}", F10)
     merged(11, spec.get("hinweis", BASIS_HINT), F10I)
+    # Kopfzeilen farbig absetzen
+    for col in range(1, last + 1):
+        ws.cell(row=1, column=col).fill = PatternFill("solid", fgColor="1F3864")
+        ws.cell(row=3, column=col).fill = PatternFill("solid", fgColor="DCE6F1")
+        ws.cell(row=11, column=col).fill = PatternFill("solid", fgColor="FFF2CC")
+    ws["A1"].font = Font(name="Arial", size=12, bold=True, color="FFFFFF")
+    ws["A3"].font = Font(name="Arial", size=10, bold=True, color="1F3864")
+    ws.row_dimensions[1].height = 26
     # Tabellenkopf
     for i, c in enumerate(cols):
         h = ws.cell(row=HR, column=i + 1, value=c[0]); h.font = F10B; h.fill = GRAU; h.border = RAHMEN; h.alignment = ZENTR
