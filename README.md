@@ -14,7 +14,7 @@ gebaut mit dem [Lernpfad-Baukasten](https://github.com/dclausen01/Lernpfad-bauka
   - `lehrkraft/loesungen/` – Musterlösungen (nicht für Web/Moodle)
   - `portfolio/` – Kann-Liste (Lernportfolio) mit Verknüpfung zu den Modulen (Prototyp)
   - `werkzeuge/` – Generatoren der Übungsdateien (siehe `werkzeuge/README.md`)
-  - `ausgabe/web/` – gebaute Webversion (**nie von Hand ändern**, wird vom Baukasten erzeugt)
+  - `ausgabe/web/` – gebaute Webversion (**nie von Hand ändern**, wird vom Baukasten erzeugt). Aktuell **nicht enthalten**: Der alte Stand liegt im Branch `lernpfad-v1` des alten Repos; die neue Webversion entsteht mit dem nächsten Build
   - `kurs.yaml`, `medien.yaml`, `quellen.yaml` – Kursbeschreibung, Medienlinks, Quellenbelege
 
 Alle 23 Module stehen aktuell auf `review: entwurf` (siehe `uebergabe.md`, Abschnitt 6 „Offene Punkte").

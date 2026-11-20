@@ -1,12 +1,8 @@
 name: Webversion auf GitHub Pages veröffentlichen
 
 on:
-  push:
-    branches:
-      - main
-      - claude/ecstatic-gauss-7tqybv
-    paths:
-      - "ausgabe/web/**"
+  # Die gebaute Webversion (ausgabe/web) liegt in diesem Repo nicht mehr. Der Workflow läuft nur von Hand,
+  # sobald ausgabe/web mit dem Baukasten neu gebaut und eingecheckt wurde.
   workflow_dispatch: {}
 
 permissions:
